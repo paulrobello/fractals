@@ -1,0 +1,2996 @@
+{
+  "page": "https://jbaker.graphics/writings/DEC.html",
+  "retrieved": "2025-10-17",
+  "count": 427,
+  "entries": [
+    {
+      "title": "Sphere",
+      "author": "Cupe / Mercury",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/sphere.glsl",
+      "image": "images/DEC/primitives/sphere.png"
+    },
+    {
+      "title": "Plane",
+      "author": "Cupe / Mercury",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/plane.glsl",
+      "image": "images/DEC/primitives/plane.png"
+    },
+    {
+      "title": "Box",
+      "author": "Cupe / Mercury",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/box.glsl",
+      "image": "images/DEC/primitives/box.png"
+    },
+    {
+      "title": "2d Infinite Box",
+      "author": "Cupe / Mercury",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/2d-infinite-box.glsl",
+      "image": "images/DEC/primitives/box2d.png"
+    },
+    {
+      "title": "Endless Corner/Shelf",
+      "author": "Cupe / Mercury",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/endless-corner-shelf.glsl",
+      "image": "images/DEC/primitives/corner.png"
+    },
+    {
+      "title": "Infinite cross shape",
+      "author": "tholzer",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/infinite-cross-shape.glsl",
+      "image": "images/DEC/primitives/cross.png"
+    },
+    {
+      "title": "Blob - not a correct distance bound, has artifacts",
+      "author": "Cupe / Mercury",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/blob-not-a-correct-distance-bound-has-artifacts.glsl",
+      "image": "images/DEC/primitives/blob.png"
+    },
+    {
+      "title": "Infinite Cylinder - perpendicular to xz plane",
+      "author": "iq",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/infinite-cylinder-perpendicular-to-xz-plane.glsl",
+      "image": "images/DEC/primitives/infinitecylinder.png"
+    },
+    {
+      "title": "Cylinder in the XZ plane",
+      "author": "Cupe / Mercury",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/cylinder-in-the-xz-plane.glsl",
+      "image": "images/DEC/primitives/cylinder.png"
+    },
+    {
+      "title": "Cylinder with rounded edges, also in XZ plane",
+      "author": "iq",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/cylinder-with-rounded-edges-also-in-xz-plane.glsl",
+      "image": "images/DEC/primitives/roundcylinder.png"
+    },
+    {
+      "title": "Capsule - cylinder with round caps",
+      "author": "Cupe / Mercury",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/capsule-cylinder-with-round-caps.glsl",
+      "image": "images/DEC/primitives/capsule.png"
+    },
+    {
+      "title": "Torus",
+      "author": "Cupe / Mercury",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/torus.glsl",
+      "image": "images/DEC/primitives/torus.png"
+    },
+    {
+      "title": "2D Disc - no thickness - subtract some amount from result to make a rounded disk",
+      "author": "Cupe / Mercury",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/2d-disc-no-thickness-subtract-some-amount-from-result-to-make-a-rounded-disk.glsl",
+      "image": "images/DEC/primitives/disk.png"
+    },
+    {
+      "title": "Hexagonal Prism",
+      "author": "Cupe / Mercury",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/hexagonal-prism.glsl",
+      "image": "images/DEC/primitives/hexagon.png"
+    },
+    {
+      "title": "Cone - pointing up the y axis",
+      "author": "Cupe / Mercury",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/cone-pointing-up-the-y-axis.glsl",
+      "image": "images/DEC/primitives/cone.png"
+    },
+    {
+      "title": "Generalized Distance Functions - Support for the following Polyhedra",
+      "author": "Akleman and Chen via Cupe / Mercury",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/generalized-distance-functions-support-for-the-following-polyhedra.glsl",
+      "image": ""
+    },
+    {
+      "title": "Octahedron",
+      "author": "Unknown",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/octahedron.glsl",
+      "image": "images/DEC/primitives/octahedron.png"
+    },
+    {
+      "title": "Dodecahedron",
+      "author": "Unknown",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/dodecahedron.glsl",
+      "image": "images/DEC/primitives/dodecahedron.png"
+    },
+    {
+      "title": "Icosahedron",
+      "author": "Unknown",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/icosahedron.glsl",
+      "image": "images/DEC/primitives/icosahedron.png"
+    },
+    {
+      "title": "Truncated Octahedron",
+      "author": "Unknown",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/truncated-octahedron.glsl",
+      "image": "images/DEC/primitives/truncated_octahedron.png"
+    },
+    {
+      "title": "Truncated Icosahedron",
+      "author": "Unknown",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/truncated-icosahedron.glsl",
+      "image": "images/DEC/primitives/truncated_icosahedron.png"
+    },
+    {
+      "title": "Octahedron (Alternative)",
+      "author": "iq",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/octahedron-alternative.glsl",
+      "image": "images/DEC/primitives/octahedron.png"
+    },
+    {
+      "title": "Icosahedron (Alternative)",
+      "author": "tholzer",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/icosahedron-alternative.glsl",
+      "image": "images/DEC/primitives/icosahedron.png"
+    },
+    {
+      "title": "Dodecahedron (Alternative)",
+      "author": "tholzer",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/dodecahedron-alternative.glsl",
+      "image": "images/DEC/primitives/dodecahedron.png"
+    },
+    {
+      "title": "// Rhombic Dodecahedron",
+      "author": "yx",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/rhombic-dodecahedron.glsl",
+      "image": "images/DEC/RhombicDodecahedron.png"
+    },
+    {
+      "title": "// Rhombic Triacontahedron",
+      "author": "yx",
+      "category": "primitives",
+      "include": "./includes/dec/primitives/rhombic-triacontahedron.glsl",
+      "image": "images/DEC/RhombicTriacontahedron.png"
+    },
+    {
+      "title": "ChamferBox - generalizes sphere, cuboid, and octahedron",
+      "author": "TLC123",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/chamferbox-generalizes-sphere-cuboid-and-octahedron.glsl",
+      "image": "images/DEC/primitives/chamferbox.png"
+    },
+    {
+      "title": "Gyroid - Here constrained to a sphere of radius 4",
+      "author": "FabriceNeyret2",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/gyroid-here-constrained-to-a-sphere-of-radius-4.glsl",
+      "image": "images/DEC/primitives/gyroid.png"
+    },
+    {
+      "title": "Gyroid Torus",
+      "author": "dr2",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/gyroid-torus.glsl",
+      "image": "images/DEC/primitives/gyroid_torus.png"
+    },
+    {
+      "title": "Ellipsoid",
+      "author": "iq",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/ellipsoid.glsl",
+      "image": "images/DEC/primitives/ellipsoid.png"
+    },
+    {
+      "title": "Box Frame",
+      "author": "iq",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/box-frame.glsl",
+      "image": "images/DEC/primitives/boxframe.png"
+    },
+    {
+      "title": "Capped Cone",
+      "author": "iq",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/capped-cone.glsl",
+      "image": "images/DEC/primitives/cappedcone.png"
+    },
+    {
+      "title": "Solid Angle",
+      "author": "iq",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/solid-angle.glsl",
+      "image": "images/DEC/primitives/solidangle.png"
+    },
+    {
+      "title": "Capped Torus",
+      "author": "iq",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/capped-torus.glsl",
+      "image": "images/DEC/primitives/cappedtorus.png"
+    },
+    {
+      "title": "Square Pyramid",
+      "author": "iq",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/square-pyramid.glsl",
+      "image": "images/DEC/primitives/pyramid.png"
+    },
+    {
+      "title": "Equilateral Triangular Prism",
+      "author": "iq",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/equilateral-triangular-prism.glsl",
+      "image": "images/DEC/primitives/triprism.png"
+    },
+    {
+      "title": "Rhomboid Prism",
+      "author": "iq",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/rhomboid-prism.glsl",
+      "image": "images/DEC/primitives/rhombus.png"
+    },
+    {
+      "title": "Rounded Cone - two spheres with convex connection",
+      "author": "iq",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/rounded-cone-two-spheres-with-convex-connection.glsl",
+      "image": "images/DEC/primitives/roundcone.png"
+    },
+    {
+      "title": "Octagonal Prism",
+      "author": "iq",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/octagonal-prism.glsl",
+      "image": "images/DEC/primitives/octagon.png"
+    },
+    {
+      "title": "Link - elongated torus",
+      "author": "iq",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/link-elongated-torus.glsl",
+      "image": "images/DEC/primitives/link.png"
+    },
+    {
+      "title": "Rounded box - unsigned",
+      "author": "iq",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/rounded-box-unsigned.glsl",
+      "image": "images/DEC/primitives/roundbox.png"
+    },
+    {
+      "title": "Wavy sphere",
+      "author": "tholzer",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/wavy-sphere.glsl",
+      "image": "images/DEC/primitives/wavesphere.png"
+    },
+    {
+      "title": "Torus8-2 using iq's change of distance metric (see operator section)",
+      "author": "iq",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/torus8-2-using-iq-s-change-of-distance-metric-see-operator-section.glsl",
+      "image": "images/DEC/primitives/torus82.png"
+    },
+    {
+      "title": "Torus8-8 using iq's change of distance metric",
+      "author": "iq",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/torus8-8-using-iq-s-change-of-distance-metric.glsl",
+      "image": "images/DEC/primitives/torus88.png"
+    },
+    {
+      "title": "Cylinder6 using iq's change of distance metric",
+      "author": "iq",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/cylinder6-using-iq-s-change-of-distance-metric.glsl",
+      "image": "images/DEC/primitives/cylinder6.png"
+    },
+    {
+      "title": "Cylinder8 using iq's change of distance metric",
+      "author": "iq",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/cylinder8-using-iq-s-change-of-distance-metric.glsl",
+      "image": "images/DEC/primitives/cylinder8.png"
+    },
+    {
+      "title": "Unsigned distance to triangle",
+      "author": "iq",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/unsigned-distance-to-triangle.glsl",
+      "image": "images/DEC/primitives/triangle.png"
+    },
+    {
+      "title": "Unsigned distance to quad",
+      "author": "iq",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/unsigned-distance-to-quad.glsl",
+      "image": "images/DEC/primitives/quad.png"
+    },
+    {
+      "title": "Star",
+      "author": "kamoshika",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/star.glsl",
+      "image": "images/DEC/primitives/star.png"
+    },
+    {
+      "title": "float de( vec3 p ) {",
+      "author": "blackle",
+      "category": "primitive",
+      "include": "./includes/dec/primitive/float-de-vec3-p.glsl",
+      "image": "images/DEC/gyroidBall.png"
+    },
+    {
+      "title": "WIP",
+      "author": "WIP",
+      "category": "operator",
+      "include": "./includes/dec/operator/wip.glsl",
+      "image": ""
+    },
+    {
+      "title": "float de( vec3 p0 ){",
+      "author": "unknown",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p0.glsl",
+      "image": "images/DEC/fractal_de.png"
+    },
+    {
+      "title": "float de( vec3 p0 ){",
+      "author": "unknown",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p0-2.glsl",
+      "image": "images/DEC/fractal_de3.png"
+    },
+    {
+      "title": "float de( vec3 p0 ){",
+      "author": "unknown",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p0-3.glsl",
+      "image": "images/DEC/fractal_de4.png"
+    },
+    {
+      "title": "float de( vec3 pos ) {",
+      "author": "unknown",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-pos.glsl",
+      "image": "images/DEC/fractal_de5.png"
+    },
+    {
+      "title": "// highly varied domain - take a look around",
+      "author": "unknown",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/highly-varied-domain-take-a-look-around.glsl",
+      "image": "images/DEC/fractal_de6.png"
+    },
+    {
+      "title": "// highly varied domain - take a look around",
+      "author": "unknown",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/highly-varied-domain-take-a-look-around-2.glsl",
+      "image": "images/DEC/fractal_de7.png"
+    },
+    {
+      "title": "float de( vec3 p ){",
+      "author": "iq",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p.glsl",
+      "image": "images/DEC/fractal_de8.png"
+    },
+    {
+      "title": "// highly varied domain - take a look around",
+      "author": "unknown",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/highly-varied-domain-take-a-look-around-3.glsl",
+      "image": "images/DEC/fractal_de9.png"
+    },
+    {
+      "title": "// highly varied domain - take a look around",
+      "author": "unknown",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/highly-varied-domain-take-a-look-around-4.glsl",
+      "image": "images/DEC/fractal_de10.png"
+    },
+    {
+      "title": "vec3 fold( vec3 p0 ){",
+      "author": "unknown",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/vec3-fold-vec3-p0.glsl",
+      "image": "images/DEC/fractal_de12.png"
+    },
+    {
+      "title": "float de( vec3 p ){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-2.glsl",
+      "image": "images/DEC/fractal_de15.png"
+    },
+    {
+      "title": "float de( vec3 p ){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-3.glsl",
+      "image": "images/DEC/fractal_de16.png"
+    },
+    {
+      "title": "void sFold90( inout vec2 p ){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/void-sfold90-inout-vec2-p.glsl",
+      "image": "images/DEC/fractal_de17.png"
+    },
+    {
+      "title": "float lpNorm( vec3 p, float n ){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-lpnorm-vec3-p-float-n.glsl",
+      "image": "images/DEC/fractal_de18.png"
+    },
+    {
+      "title": "#define sabs1(p)sqrt((p)*(p)+1e-1)",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/define-sabs1-p-sqrt-p-p-1e-1.glsl",
+      "image": "images/DEC/fractal_de19.png"
+    },
+    {
+      "title": "float de( vec3 p ){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-4.glsl",
+      "image": "images/DEC/fractal_de20.png"
+    },
+    {
+      "title": "float de( vec3 p ){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-5.glsl",
+      "image": "images/DEC/fractal_de21.png"
+    },
+    {
+      "title": "float de( vec3 p ){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-6.glsl",
+      "image": "images/DEC/fractal_de22.png"
+    },
+    {
+      "title": "float de( vec3 p ){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-7.glsl",
+      "image": "images/DEC/fractal_de23.png"
+    },
+    {
+      "title": "float de( vec3 p ) {",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-8.glsl",
+      "image": "images/DEC/fractal_de24.png"
+    },
+    {
+      "title": "float de( vec3 p ){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-9.glsl",
+      "image": "images/DEC/fractal_de25.png"
+    },
+    {
+      "title": "float de( vec3 p ){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-10.glsl",
+      "image": "images/DEC/fractal_de26.png"
+    },
+    {
+      "title": "float de( vec3 p ){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-11.glsl",
+      "image": "images/DEC/fractal_de27.png"
+    },
+    {
+      "title": "float de( vec3 p ){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-12.glsl",
+      "image": "images/DEC/fractal_de28.png"
+    },
+    {
+      "title": "float de( vec3 p ){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-13.glsl",
+      "image": "images/DEC/fractal_de29.png"
+    },
+    {
+      "title": "#define TAUg atan(1.)*8.",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/define-taug-atan-1-8.glsl",
+      "image": "images/DEC/fractal_de30.png"
+    },
+    {
+      "title": "float de( vec3 p ){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-14.glsl",
+      "image": "images/DEC/fractal_de31.png"
+    },
+    {
+      "title": "vec3 fold(vec3 p0){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/vec3-fold-vec3-p0-2.glsl",
+      "image": "images/DEC/fractal_de32.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-15.glsl",
+      "image": "images/DEC/fractal_de35.png"
+    },
+    {
+      "title": "float de( vec3 p ) {",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-16.glsl",
+      "image": "images/DEC/fractal_de36.png"
+    },
+    {
+      "title": "float de( vec3 p ) {",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-17.glsl",
+      "image": "images/DEC/fractal_de37.png"
+    },
+    {
+      "title": "float de( vec3 p ){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-18.glsl",
+      "image": "images/DEC/fractal_de38.png"
+    },
+    {
+      "title": "#define fold45(p)(p.y>p.x)?p.yx:p",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/define-fold45-p-p-y-p-x-p-yx-p.glsl",
+      "image": "images/DEC/fractal_de40.png"
+    },
+    {
+      "title": "float de( vec3 p ){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-19.glsl",
+      "image": "images/DEC/fractal_de41.png"
+    },
+    {
+      "title": "vec3 rotate(vec3 p,vec3 axis,float theta){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/vec3-rotate-vec3-p-vec3-axis-float-theta.glsl",
+      "image": "images/DEC/fractal_de43.png"
+    },
+    {
+      "title": "#define pmod(p,n)length(p)*sin(vec2(0.,M_PI/2.)\\",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/define-pmod-p-n-length-p-sin-vec2-0-m-pi-2.glsl",
+      "image": "images/DEC/fractal_de44.png"
+    },
+    {
+      "title": "float de( vec3 p ){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-20.glsl",
+      "image": "images/DEC/fractal_de45.png"
+    },
+    {
+      "title": "float de( vec3 p ){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-21.glsl",
+      "image": "images/DEC/fractal_de46.png"
+    },
+    {
+      "title": "float de( vec3 p ){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-22.glsl",
+      "image": "images/DEC/fractal_de47.png"
+    },
+    {
+      "title": "float de( vec3 p ){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-23.glsl",
+      "image": "images/DEC/fractal_de48.png"
+    },
+    {
+      "title": "float lpNorm(vec3 p, float n){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-lpnorm-vec3-p-float-n-2.glsl",
+      "image": "images/DEC/fractal_de49.png"
+    },
+    {
+      "title": "#define rot(a) mat2(cos(a),sin(a),-sin(a),cos(a))",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/define-rot-a-mat2-cos-a-sin-a-sin-a-cos-a.glsl",
+      "image": "images/DEC/fractal_de50.png"
+    },
+    {
+      "title": "#define rot(a) mat2(cos(a),sin(a),-sin(a),cos(a))",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/define-rot-a-mat2-cos-a-sin-a-sin-a-cos-a-2.glsl",
+      "image": "images/DEC/fractal_de51.png"
+    },
+    {
+      "title": "float lpNorm(vec3 p, float n){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-lpnorm-vec3-p-float-n-3.glsl",
+      "image": "images/DEC/fractal_de52.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-24.glsl",
+      "image": "images/DEC/fractal_de55.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-25.glsl",
+      "image": "images/DEC/fractal_de56.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-26.glsl",
+      "image": "images/DEC/fractal_de57.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-27.glsl",
+      "image": "images/DEC/fractal_de59.png"
+    },
+    {
+      "title": "#define rot(a) mat2(cos(a),sin(a),-sin(a),cos(a))",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/define-rot-a-mat2-cos-a-sin-a-sin-a-cos-a-3.glsl",
+      "image": "images/DEC/fractal_de61.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "xem",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-28.glsl",
+      "image": "images/DEC/fractal_de66.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-29.glsl",
+      "image": "images/DEC/fractal_de72.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-30.glsl",
+      "image": "images/DEC/fractal_de75.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-31.glsl",
+      "image": "images/DEC/fractal_de76.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-32.glsl",
+      "image": "images/DEC/fractal_de78.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-33.glsl",
+      "image": "images/DEC/fractal_de79.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-34.glsl",
+      "image": "images/DEC/fractal_de80.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-35.glsl",
+      "image": "images/DEC/fractal_de81.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-36.glsl",
+      "image": "images/DEC/fractal_de82.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-37.glsl",
+      "image": "images/DEC/fractal_de84.png"
+    },
+    {
+      "title": "float de(vec3 p0){",
+      "author": "Nameless",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p0-4.glsl",
+      "image": "images/DEC/fractal_de86.png"
+    },
+    {
+      "title": "float de(vec3 p0){",
+      "author": "Nameless",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p0-5.glsl",
+      "image": "images/DEC/fractal_de87.png"
+    },
+    {
+      "title": "float de(vec3 p0){",
+      "author": "Nameless",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p0-6.glsl",
+      "image": "images/DEC/fractal_de88.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "Ivan Dianov",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-38.glsl",
+      "image": "images/DEC/fractal_de89.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-39.glsl",
+      "image": "images/DEC/fractal_de90.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-40.glsl",
+      "image": "images/DEC/fractal_de91.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-41.glsl",
+      "image": "images/DEC/fractal_de92.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "eiffie",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-42.glsl",
+      "image": "images/DEC/fractal_de93.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-43.glsl",
+      "image": "images/DEC/fractal_de94.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-44.glsl",
+      "image": "images/DEC/fractal_de95.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-45.glsl",
+      "image": "images/DEC/fractal_de96.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "adapted from gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-46.glsl",
+      "image": "images/DEC/fractal_de97.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "adapted from gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-47.glsl",
+      "image": "images/DEC/fractal_de98.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-48.glsl",
+      "image": "images/DEC/fractal_de99.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-49.glsl",
+      "image": "images/DEC/fractal_de100.png"
+    },
+    {
+      "title": "void rot101(inout vec3 p,vec3 a,float t){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/void-rot101-inout-vec3-p-vec3-a-float-t.glsl",
+      "image": "images/DEC/fractal_de101.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-50.glsl",
+      "image": "images/DEC/fractal_de102.png"
+    },
+    {
+      "title": "float de(vec3 p) {",
+      "author": "Kali",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-51.glsl",
+      "image": "images/DEC/fractal_de103.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-52.glsl",
+      "image": "images/DEC/fractal_de106.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-53.glsl",
+      "image": "images/DEC/fractal_de107.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-54.glsl",
+      "image": "images/DEC/fractal_de108.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-55.glsl",
+      "image": "images/DEC/fractal_de109.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-56.glsl",
+      "image": "images/DEC/fractal_de110.png"
+    },
+    {
+      "title": "float  de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-57.glsl",
+      "image": "images/DEC/fractal_de111.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-58.glsl",
+      "image": "images/DEC/fractal_de112.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "adapted from code by catzpaw",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-59.glsl",
+      "image": "images/DEC/fractal_de113.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "adapted from code by catzpaw",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-60.glsl",
+      "image": "images/DEC/fractal_de114.png"
+    },
+    {
+      "title": "float de(vec3 p){  (distance bound doesn't hold)",
+      "author": "catzpaw",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-distance-bound-doesn-t-hold.glsl",
+      "image": "images/DEC/fractal_de115.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-61.glsl",
+      "image": "images/DEC/fractal_de116.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-62.glsl",
+      "image": "images/DEC/fractal_de117.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-63.glsl",
+      "image": "images/DEC/fractal_de118.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-64.glsl",
+      "image": "images/DEC/fractal_de119.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-65.glsl",
+      "image": "images/DEC/fractal_de120.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-66.glsl",
+      "image": "images/DEC/fractal_de121.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-67.glsl",
+      "image": "images/DEC/fractal_de122.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-68.glsl",
+      "image": "images/DEC/fractal_de124.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-69.glsl",
+      "image": "images/DEC/fractal_de125.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-70.glsl",
+      "image": "images/DEC/fractal_de126.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-71.glsl",
+      "image": "images/DEC/fractal_de127.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-72.glsl",
+      "image": "images/DEC/fractal_de128.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-73.glsl",
+      "image": "images/DEC/fractal_de129.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-74.glsl",
+      "image": "images/DEC/fractal_de130.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-75.glsl",
+      "image": "images/DEC/fractal_de131.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-76.glsl",
+      "image": "images/DEC/fractal_de133.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-77.glsl",
+      "image": "images/DEC/fractal_de134.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-78.glsl",
+      "image": "images/DEC/fractal_de135.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-79.glsl",
+      "image": "images/DEC/fractal_de136.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "takusakuw",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-80.glsl",
+      "image": "images/DEC/fractal_de137.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "yosshin",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-81.glsl",
+      "image": "images/DEC/fractal_de138.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "takusakuw",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-82.glsl",
+      "image": "images/DEC/fractal_de139.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "yuruyurau",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-83.glsl",
+      "image": "images/DEC/fractal_de140.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-84.glsl",
+      "image": "images/DEC/fractal_de141.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-85.glsl",
+      "image": "images/DEC/fractal_de142.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "adapted from code by alia",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-86.glsl",
+      "image": "images/DEC/fractal_de143.png"
+    },
+    {
+      "title": "float de(vec3 p){ // has aliasing issues",
+      "author": "adapted from code by wrighter",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-has-aliasing-issues.glsl",
+      "image": "images/DEC/fractal_de144.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "phi16",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-87.glsl",
+      "image": "images/DEC/fractal_de145.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-88.glsl",
+      "image": "images/DEC/fractal_de146.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-89.glsl",
+      "image": "images/DEC/fractal_de147.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-90.glsl",
+      "image": "images/DEC/fractal_de148.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-91.glsl",
+      "image": "images/DEC/fractal_de149.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-92.glsl",
+      "image": "images/DEC/fractal_de150.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-93.glsl",
+      "image": "images/DEC/fractal_de151.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "kamoshika",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-94.glsl",
+      "image": "images/DEC/fractal_de152.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "kamoshika",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-95.glsl",
+      "image": "images/DEC/fractal_de153.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-96.glsl",
+      "image": "images/DEC/fractal_de154.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-97.glsl",
+      "image": "images/DEC/fractal_de156.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-98.glsl",
+      "image": "images/DEC/fractal_de157.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-99.glsl",
+      "image": "images/DEC/fractal_de158.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-100.glsl",
+      "image": "images/DEC/fractal_de159.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-101.glsl",
+      "image": "images/DEC/fractal_de160.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-102.glsl",
+      "image": "images/DEC/fractal_de161.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-103.glsl",
+      "image": "images/DEC/fractal_de162.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-104.glsl",
+      "image": "images/DEC/fractal_de163.png"
+    },
+    {
+      "title": "float de(vec3 p0){",
+      "author": "Nameless",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p0-7.glsl",
+      "image": "images/DEC/fractal_de164.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-105.glsl",
+      "image": "images/DEC/fractal_de165.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-106.glsl",
+      "image": "images/DEC/fractal_de166.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-107.glsl",
+      "image": "images/DEC/fractal_de167.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-108.glsl",
+      "image": "images/DEC/fractal_de168.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-109.glsl",
+      "image": "images/DEC/fractal_de169.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-110.glsl",
+      "image": "images/DEC/fractal_de170.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-111.glsl",
+      "image": "images/DEC/fractal_de171.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-112.glsl",
+      "image": "images/DEC/fractal_de172.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-113.glsl",
+      "image": "images/DEC/fractal_de173.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-114.glsl",
+      "image": "images/DEC/fractal_de174.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-115.glsl",
+      "image": "images/DEC/fractal_de175.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-116.glsl",
+      "image": "images/DEC/fractal_de176.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-117.glsl",
+      "image": "images/DEC/fractal_de177.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-118.glsl",
+      "image": "images/DEC/fractal_de179.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-119.glsl",
+      "image": "images/DEC/fractal_de180.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-120.glsl",
+      "image": "images/DEC/fractal_de181.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-121.glsl",
+      "image": "images/DEC/fractal_de182.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-122.glsl",
+      "image": "images/DEC/fractal_de183.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-123.glsl",
+      "image": "images/DEC/fractal_de184.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-124.glsl",
+      "image": "images/DEC/fractal_de185.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-125.glsl",
+      "image": "images/DEC/fractal_de186.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-126.glsl",
+      "image": "images/DEC/fractal_de187.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "amini",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-127.glsl",
+      "image": "images/DEC/fractal_de188.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "Kali",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-128.glsl",
+      "image": "images/DEC/fractal_de191.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "Kali",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-129.glsl",
+      "image": "images/DEC/fractal_de192.png"
+    },
+    {
+      "title": "float de(vec3 pos){",
+      "author": "Kali",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-pos-2.glsl",
+      "image": "images/DEC/fractal_de193.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "shane",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-130.glsl",
+      "image": "images/DEC/fractal_de194.png"
+    },
+    {
+      "title": "float de(vec3 p) {",
+      "author": "avi",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-131.glsl",
+      "image": "images/DEC/fractal_de195.png"
+    },
+    {
+      "title": "vec3 foldY(vec3 P, float c){",
+      "author": "guil",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/vec3-foldy-vec3-p-float-c.glsl",
+      "image": "images/DEC/fractal_de196.png"
+    },
+    {
+      "title": "mat3 rotmat(float angle, vec3 axis){",
+      "author": "marvelousbilly",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/mat3-rotmat-float-angle-vec3-axis.glsl",
+      "image": "images/DEC/fractal_de197.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "adapted from code by marvelousbilly",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-132.glsl",
+      "image": "images/DEC/fractal_de198.png"
+    },
+    {
+      "title": "float de(vec3 p0){",
+      "author": "Nameless",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p0-8.glsl",
+      "image": "images/DEC/fractal_de199.png"
+    },
+    {
+      "title": "void ry(inout vec3 p, float a){",
+      "author": "evilryu",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/void-ry-inout-vec3-p-float-a.glsl",
+      "image": "images/DEC/fractal_de200.png"
+    },
+    {
+      "title": "float de( vec3 p ){",
+      "author": "adapted from code by jorge2017a1",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-133.glsl",
+      "image": "images/DEC/fractal_de203.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "unknown",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-134.glsl",
+      "image": "images/DEC/fractal_de204.png"
+    },
+    {
+      "title": "mat2 rot2(in float a){ float c = cos(a), s = sin(a); return mat2(c, s, -s, c); }",
+      "author": "shane",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/mat2-rot2-in-float-a-float-c-cos-a-s-sin-a-return-mat2-c-s-s-c.glsl",
+      "image": "images/DEC/fractal_de211.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-135.glsl",
+      "image": "images/DEC/fractal_de212.png"
+    },
+    {
+      "title": "float de(vec3 p0){",
+      "author": "unknown",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p0-9.glsl",
+      "image": "images/DEC/fractal_de215.png"
+    },
+    {
+      "title": "float de(vec3 p0){",
+      "author": "macbooktall",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p0-10.glsl",
+      "image": "images/DEC/fractal_de216.png"
+    },
+    {
+      "title": "void pR(inout vec2 p, float a) {",
+      "author": "macbooktall",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/void-pr-inout-vec2-p-float-a.glsl",
+      "image": "images/DEC/fractal_de213.png"
+    },
+    {
+      "title": "float de(vec3 p0){",
+      "author": "Nameless",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p0-11.glsl",
+      "image": "images/DEC/fractal_de217.png"
+    },
+    {
+      "title": "float pi = acos(-1.);",
+      "author": "butadiene",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-pi-acos-1.glsl",
+      "image": "images/DEC/fractal_de218.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-136.glsl",
+      "image": "images/DEC/fractal_de219.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-137.glsl",
+      "image": "images/DEC/fractal_de220.png"
+    },
+    {
+      "title": "mat2 rotate2D(float r){",
+      "author": "kamoshika",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/mat2-rotate2d-float-r.glsl",
+      "image": "images/DEC/fractal_de221.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "Nameless",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-138.glsl",
+      "image": "images/DEC/fractal_de222.png"
+    },
+    {
+      "title": "float de(vec3 p0){",
+      "author": "Nameless",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p0-12.glsl",
+      "image": "images/DEC/fractal_de223.png"
+    },
+    {
+      "title": "float de(vec3 p0){",
+      "author": "Nameless",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p0-13.glsl",
+      "image": "images/DEC/fractal_de224.png"
+    },
+    {
+      "title": "float de(vec3 p0){",
+      "author": "Nameless",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p0-14.glsl",
+      "image": "images/DEC/fractal_de225.png"
+    },
+    {
+      "title": "float de(vec3 p0){",
+      "author": "Nameless",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p0-15.glsl",
+      "image": "images/DEC/fractal_de226.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "Nameless",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-139.glsl",
+      "image": "images/DEC/fractal_de227.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "Unknown",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-140.glsl",
+      "image": "images/DEC/fractal_de228.png"
+    },
+    {
+      "title": "float de(vec3 p) {",
+      "author": "unknown",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-141.glsl",
+      "image": "images/DEC/fractal_de229.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "kamoshika",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-142.glsl",
+      "image": "images/DEC/fractal_de230.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "kamoshika",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-143.glsl",
+      "image": "images/DEC/fractal_de231.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "kamoshika",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-144.glsl",
+      "image": "images/DEC/fractal_de232.png"
+    },
+    {
+      "title": "#define D(p) abs(dot(sin(p), cos(p.yzx)))",
+      "author": "kamoshika",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/define-d-p-abs-dot-sin-p-cos-p-yzx.glsl",
+      "image": "images/DEC/fractal_de233.png"
+    },
+    {
+      "title": "// very compact menger sponge expression",
+      "author": "kamoshika",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/very-compact-menger-sponge-expression.glsl",
+      "image": "images/DEC/fractal_de234.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "kamoshika",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-145.glsl",
+      "image": "images/DEC/fractal_de235.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "kamoshika",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-146.glsl",
+      "image": "images/DEC/fractal_de236.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "kamoshika",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-147.glsl",
+      "image": "images/DEC/fractal_de237.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "kamoshika",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-148.glsl",
+      "image": "images/DEC/fractal_de238.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "kamoshika",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-149.glsl",
+      "image": "images/DEC/fractal_de239.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "kamoshika",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-150.glsl",
+      "image": "images/DEC/fractal_de240.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "adapted from code by kamoshika",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-151.glsl",
+      "image": "images/DEC/fractal_de241.png"
+    },
+    {
+      "title": "#define rot(a)mat2(cos(a),sin(a),-sin(a),cos(a))",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/define-rot-a-mat2-cos-a-sin-a-sin-a-cos-a-4.glsl",
+      "image": "images/DEC/fractal_de242.png"
+    },
+    {
+      "title": "mat2 rotate2D(float r){",
+      "author": "kamoshika",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/mat2-rotate2d-float-r-2.glsl",
+      "image": "images/DEC/fractal_de243.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "adapted from code by notargs",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-152.glsl",
+      "image": "images/DEC/fractal_de244.png"
+    },
+    {
+      "title": "#define D (dot(sin(Q),cos(Q.yzx))+1.3)",
+      "author": "kamoshika",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/define-d-dot-sin-q-cos-q-yzx-1-3.glsl",
+      "image": "images/DEC/fractal_de245.png"
+    },
+    {
+      "title": "#define D dot(sin(Q),cos(Q.yzx))+1.35",
+      "author": "kamoshika",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/define-d-dot-sin-q-cos-q-yzx-1-35.glsl",
+      "image": "images/DEC/fractal_de246.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-153.glsl",
+      "image": "images/DEC/fractal_de247.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "kamoshika",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-154.glsl",
+      "image": "images/DEC/fractal_de248.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "kamoshika",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-155.glsl",
+      "image": "images/DEC/fractal_de250.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "kamoshika",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-156.glsl",
+      "image": "images/DEC/fractal_de251.png"
+    },
+    {
+      "title": "#define D d=min(d,length(vec2(length(Q.zx)-.3,Q.y))-.02)",
+      "author": "kamoshika",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/define-d-d-min-d-length-vec2-length-q-zx-3-q-y-02.glsl",
+      "image": "images/DEC/fractal_de252.png"
+    },
+    {
+      "title": "void sphere_folds(inout vec3 z, inout float dz) {",
+      "author": "Nameless",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/void-sphere-folds-inout-vec3-z-inout-float-dz.glsl",
+      "image": "images/DEC/fractal_de253.png"
+    },
+    {
+      "title": "void sphere_folds(inout vec3 z, inout float dz) {",
+      "author": "Nameless",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/void-sphere-folds-inout-vec3-z-inout-float-dz-2.glsl",
+      "image": "images/DEC/fractal_de254.png"
+    },
+    {
+      "title": "void sphere_folds(inout vec3 z, inout float dz) {",
+      "author": "Nameless",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/void-sphere-folds-inout-vec3-z-inout-float-dz-3.glsl",
+      "image": "images/DEC/fractal_de255.png"
+    },
+    {
+      "title": "float de(vec3 p0){",
+      "author": "Nameless",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p0-16.glsl",
+      "image": "images/DEC/fractal_de256.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-157.glsl",
+      "image": "images/DEC/fractal_de257.png"
+    },
+    {
+      "title": "#define R(p,a,r)mix(a*dot(p,a),p,cos(r))+sin(r)*cross(p,a)",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/define-r-p-a-r-mix-a-dot-p-a-p-cos-r-sin-r-cross-p-a.glsl",
+      "image": "images/DEC/fractal_de258.png"
+    },
+    {
+      "title": "#define X(V)d=min(d,length(V)-.13),",
+      "author": "kamoshika",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/define-x-v-d-min-d-length-v-13.glsl",
+      "image": "images/DEC/fractal_de259.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "kamoshika",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-158.glsl",
+      "image": "images/DEC/fractal_de260.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "Nameless",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-159.glsl",
+      "image": "images/DEC/fractal_de261.png"
+    },
+    {
+      "title": "float de(vec3 p0){",
+      "author": "Nameless",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p0-17.glsl",
+      "image": "images/DEC/fractal_de262.png"
+    },
+    {
+      "title": "float de(vec3 p0){",
+      "author": "Nameless",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p0-18.glsl",
+      "image": "images/DEC/fractal_de263.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-160.glsl",
+      "image": "images/DEC/fractal_de264.png"
+    },
+    {
+      "title": "float de( vec3 p ) {",
+      "author": "nimitz/yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-161.glsl",
+      "image": "images/DEC/swirl.png"
+    },
+    {
+      "title": "mat2 rot( float a ) { return mat2( cos( a ), sin( a ), -sin( a ), cos( a ) ); }",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/mat2-rot-float-a-return-mat2-cos-a-sin-a-sin-a-cos-a.glsl",
+      "image": "images/DEC/water.png"
+    },
+    {
+      "title": "float de( vec3 p ){",
+      "author": "kamoshika",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-162.glsl",
+      "image": "images/DEC/htree.png"
+    },
+    {
+      "title": "float de( vec3 p ) {",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-163.glsl",
+      "image": "images/DEC/boxframe.png"
+    },
+    {
+      "title": "mat2 rot ( float a ) { return mat2( cos( a ), -sin( a ), sin( a ), cos( a ) ); }",
+      "author": "Leon Denise",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/mat2-rot-float-a-return-mat2-cos-a-sin-a-sin-a-cos-a-2.glsl",
+      "image": "images/DEC/fractalCity.png"
+    },
+    {
+      "title": "float de( vec3 p ) {",
+      "author": "Adapted from code by Kali",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-164.glsl",
+      "image": "images/DEC/flipper.png"
+    },
+    {
+      "title": "mat3 SetRotQuat ( const in vec4 q ) {",
+      "author": "Adapted from code by P_Malin",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/mat3-setrotquat-const-in-vec4-q.glsl",
+      "image": "images/DEC/KIFS.png"
+    },
+    {
+      "title": "vec2 wrap ( vec2 x, vec2 a, vec2 s ) {",
+      "author": "Jos Leys / Knighty",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/vec2-wrap-vec2-x-vec2-a-vec2-s.glsl",
+      "image": "images/DEC/curly1.png"
+    },
+    {
+      "title": "// Spherical Inversion Variant of Above",
+      "author": "Jos Leys / Knighty",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/spherical-inversion-variant-of-above.glsl",
+      "image": "images/DEC/curly2.png"
+    },
+    {
+      "title": "// tdhooper variant 1 - spherical inversion",
+      "author": "Jos Leys / Knighty / tdhooper",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/tdhooper-variant-1-spherical-inversion.glsl",
+      "image": "images/DEC/curly3.png"
+    },
+    {
+      "title": "// Tdhooper Variant 2",
+      "author": "Jos Leys / Knighty / tdhooper",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/tdhooper-variant-2.glsl",
+      "image": "images/DEC/curly4.png"
+    },
+    {
+      "title": "#define rot(a)mat2(cos(a),sin(a),-sin(a),cos(a))",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/define-rot-a-mat2-cos-a-sin-a-sin-a-cos-a-5.glsl",
+      "image": "images/DEC/SpiderApollo.png"
+    },
+    {
+      "title": "#define rot(a)mat2(cos(a),sin(a),-sin(a),cos(a))",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/define-rot-a-mat2-cos-a-sin-a-sin-a-cos-a-6.glsl",
+      "image": "images/DEC/ConstrainedApollo.png"
+    },
+    {
+      "title": "float de( vec3 p ){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-165.glsl",
+      "image": "images/DEC/BoneGrid.png"
+    },
+    {
+      "title": "#define ei(a) mat2(cos(a),-sin(a),sin(a),cos(a))",
+      "author": "wyatt",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/define-ei-a-mat2-cos-a-sin-a-sin-a-cos-a.glsl",
+      "image": "images/DEC/TreeBell.png"
+    },
+    {
+      "title": "#define ei(a) mat2(cos(a),-sin(a),sin(a),cos(a))",
+      "author": "wyatt",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/define-ei-a-mat2-cos-a-sin-a-sin-a-cos-a-2.glsl",
+      "image": "images/DEC/TreeBell2.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-166.glsl",
+      "image": "images/DEC/teef.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-167.glsl",
+      "image": "images/DEC/ringo.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-168.glsl",
+      "image": "images/DEC/whorl.png"
+    },
+    {
+      "title": "mat2 rotate2D ( float r ) {",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/mat2-rotate2d-float-r-3.glsl",
+      "image": "images/DEC/tree.png"
+    },
+    {
+      "title": "mat2 rotate2D ( float r ) {",
+      "author": "kamoshika",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/mat2-rotate2d-float-r-4.glsl",
+      "image": "images/DEC/threads.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-169.glsl",
+      "image": "images/DEC/gate0.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-170.glsl",
+      "image": "images/DEC/gates.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-171.glsl",
+      "image": "images/DEC/castleRing.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-172.glsl",
+      "image": "images/DEC/hatRing.png"
+    },
+    {
+      "title": "// same as above, without the space transform",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/same-as-above-without-the-space-transform.glsl",
+      "image": "images/DEC/gRails.png"
+    },
+    {
+      "title": "mat2 rotate2D ( float r ) {",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/mat2-rotate2d-float-r-5.glsl",
+      "image": "images/DEC/tree2.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-173.glsl",
+      "image": "images/DEC/ballDiamond.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "gaziya5 aka gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-174.glsl",
+      "image": "images/DEC/sinDungeon.png"
+    },
+    {
+      "title": "vec2 cmul( vec2 a, vec2 b ) {",
+      "author": "athibaul",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/vec2-cmul-vec2-a-vec2-b.glsl",
+      "image": "images/DEC/Julia.png"
+    },
+    {
+      "title": "float hash13(vec3 p3){",
+      "author": "noby",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-hash13-vec3-p3.glsl",
+      "image": "images/DEC/noby0.png"
+    },
+    {
+      "title": "float hash13(vec3 p3){",
+      "author": "noby",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-hash13-vec3-p3-2.glsl",
+      "image": "images/DEC/noby1.png"
+    },
+    {
+      "title": "mat3 getRotZMat(float a){return mat3(cos(a),-sin(a),0.,sin(a),cos(a),0.,0.,0.,1.);}",
+      "author": "aiekick",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/mat3-getrotzmat-float-a-return-mat3-cos-a-sin-a-0-sin-a-cos-a-0-0-0-1.glsl",
+      "image": "images/DEC/whorl2.png"
+    },
+    {
+      "title": "// Hash based domain repeat snowflakes - Rikka 2 demo",
+      "author": "Catzpaw",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/hash-based-domain-repeat-snowflakes-rikka-2-demo.glsl",
+      "image": "images/DEC/snowflake.png"
+    },
+    {
+      "title": "float cube(vec3 p){",
+      "author": "Catzpaw",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-cube-vec3-p.glsl",
+      "image": "images/DEC/cagedStar.png"
+    },
+    {
+      "title": "mat3 rotZ ( float t ) {",
+      "author": "aiekick",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/mat3-rotz-float-t.glsl",
+      "image": "images/DEC/doubleNut.png"
+    },
+    {
+      "title": "float de ( vec3 p ){",
+      "author": "gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-175.glsl",
+      "image": "images/DEC/snoflake3d.png"
+    },
+    {
+      "title": "float de ( vec3 p ){",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-176.glsl",
+      "image": "images/DEC/grid.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-177.glsl",
+      "image": "images/DEC/bug.png"
+    },
+    {
+      "title": "mat2 rotate2D ( float r ) {",
+      "author": "gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/mat2-rotate2d-float-r-6.glsl",
+      "image": "images/DEC/spike.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "snolot",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-178.glsl",
+      "image": "images/DEC/fractalPump.png"
+    },
+    {
+      "title": "mat2 rot ( float a ) {",
+      "author": "rickiters",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/mat2-rot-float-a.glsl",
+      "image": "images/DEC/pentaflake.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-179.glsl",
+      "image": "images/DEC/waterbear.png"
+    },
+    {
+      "title": "// minor tweak of above",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/minor-tweak-of-above.glsl",
+      "image": "images/DEC/flowerz.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "Catzpaw",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-180.glsl",
+      "image": "images/DEC/griddy.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-181.glsl",
+      "image": "images/DEC/dark.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-182.glsl",
+      "image": "images/DEC/reeds.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "sxolastikos",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-183.glsl",
+      "image": "images/DEC/temple.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-184.glsl",
+      "image": "images/DEC/rolls.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "catzpaw",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-185.glsl",
+      "image": "images/DEC/warpedKlein.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "catzpaw",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-186.glsl",
+      "image": "images/DEC/sinugoid.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-187.glsl",
+      "image": "images/DEC/heartcube.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-188.glsl",
+      "image": "images/DEC/manscaped.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-189.glsl",
+      "image": "images/DEC/chorse.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-190.glsl",
+      "image": "images/DEC/gripple.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-191.glsl",
+      "image": "images/DEC/getwork.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "catzpaw",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-192.glsl",
+      "image": "images/DEC/flor.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "catzpaw",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-193.glsl",
+      "image": "images/DEC/mipple.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-194.glsl",
+      "image": "images/DEC/prisnm.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "i_dianov",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-195.glsl",
+      "image": "images/DEC/braind.png"
+    },
+    {
+      "title": "mat2 rot( float r ){",
+      "author": "i_dianov",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/mat2-rot-float-r.glsl",
+      "image": "images/DEC/tokamak.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-196.glsl",
+      "image": "images/DEC/gweave.png"
+    },
+    {
+      "title": "#define PI 3.14159265",
+      "author": "illus0r",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/define-pi-3-14159265.glsl",
+      "image": "images/DEC/rincut.png"
+    },
+    {
+      "title": "// modification of above",
+      "author": "illus0r",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/modification-of-above.glsl",
+      "image": "images/DEC/torii.png"
+    },
+    {
+      "title": "float de( vec3 p ) {",
+      "author": "illus0r",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-197.glsl",
+      "image": "images/DEC/bali.png"
+    },
+    {
+      "title": "float de(vec3 p) {",
+      "author": "illus0r (modified)",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-198.glsl",
+      "image": "images/DEC/kalib.png"
+    },
+    {
+      "title": "float sdBox(vec3 p, vec3 s) {",
+      "author": "Schwarz P",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-sdbox-vec3-p-vec3-s.glsl",
+      "image": "images/DEC/schwarz.png"
+    },
+    {
+      "title": "float de(vec3 p) {",
+      "author": "i_dianov",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-199.glsl",
+      "image": "images/DEC/munger.png"
+    },
+    {
+      "title": "#define rot(a) mat2(cos(a),sin(a),-sin(a),cos(a))",
+      "author": "i_dianov",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/define-rot-a-mat2-cos-a-sin-a-sin-a-cos-a-7.glsl",
+      "image": "images/DEC/viking.png"
+    },
+    {
+      "title": "#define rot(a) mat2(cos(a),sin(a),-sin(a),cos(a))",
+      "author": "i_dianov",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/define-rot-a-mat2-cos-a-sin-a-sin-a-cos-a-8.glsl",
+      "image": "images/DEC/knitt.png"
+    },
+    {
+      "title": "#define _(a) mat2(cos(a),sin(a),-sin(a),cos(a))",
+      "author": "gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/define-a-mat2-cos-a-sin-a-sin-a-cos-a.glsl",
+      "image": "images/DEC/knittt.png"
+    },
+    {
+      "title": "#define rot(a) mat2(cos(a),sin(a),-sin(a),cos(a))",
+      "author": "illus0r",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/define-rot-a-mat2-cos-a-sin-a-sin-a-cos-a-9.glsl",
+      "image": "images/DEC/chiral.png"
+    },
+    {
+      "title": "#define PI (atan(1.)*4.)",
+      "author": "illus0r",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/define-pi-atan-1-4.glsl",
+      "image": "images/DEC/rifs.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "illus0r",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-200.glsl",
+      "image": "images/DEC/swizz.png"
+    },
+    {
+      "title": "#define rot(a) mat2(cos(a),sin(a),-sin(a),cos(a))",
+      "author": "illus0r",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/define-rot-a-mat2-cos-a-sin-a-sin-a-cos-a-10.glsl",
+      "image": "images/DEC/swizz2.png"
+    },
+    {
+      "title": "#define rot(a) mat2(cos(a),sin(a),-sin(a),cos(a))",
+      "author": "illus0r",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/define-rot-a-mat2-cos-a-sin-a-sin-a-cos-a-11.glsl",
+      "image": "images/DEC/kalic.png"
+    },
+    {
+      "title": "#define rot(a) mat2(cos(a),sin(a),-sin(a),cos(a))",
+      "author": "gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/define-rot-a-mat2-cos-a-sin-a-sin-a-cos-a-12.glsl",
+      "image": "images/DEC/gonuts.png"
+    },
+    {
+      "title": "#define rot(a) mat2(cos(a),sin(a),-sin(a),cos(a))",
+      "author": "gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/define-rot-a-mat2-cos-a-sin-a-sin-a-cos-a-13.glsl",
+      "image": "images/DEC/amoeba.png"
+    },
+    {
+      "title": "mat2 rotate2D ( float r ) {",
+      "author": "tk87",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/mat2-rotate2d-float-r-7.glsl",
+      "image": "images/DEC/twiggy.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "tk87",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-201.glsl",
+      "image": "images/DEC/twiggy2.png"
+    },
+    {
+      "title": "float gyroid (vec3 seed) { return dot(sin(seed),cos(seed.yzx)); }",
+      "author": "leon",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-gyroid-vec3-seed-return-dot-sin-seed-cos-seed-yzx.glsl",
+      "image": "images/DEC/spicy.png"
+    },
+    {
+      "title": "float r11 ( float t ) {",
+      "author": "Jeyko",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-r11-float-t.glsl",
+      "image": "images/DEC/blocktree.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "gaz",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-202.glsl",
+      "image": "images/DEC/threddy.png"
+    },
+    {
+      "title": "//  Snowflake by Lewpen (fractals.com)",
+      "author": "Lewpen",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/snowflake-by-lewpen-fractals-com.glsl",
+      "image": "images/DEC/Lewpen_snowflake.png"
+    },
+    {
+      "title": "//  Origin Flowers by Lewpen (fractals.com)",
+      "author": "Lewpen",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/origin-flowers-by-lewpen-fractals-com.glsl",
+      "image": "images/DEC/OriginFlowers.png"
+    },
+    {
+      "title": "//  Converge by Lewpen (fractals.com)",
+      "author": "Lewpen",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/converge-by-lewpen-fractals-com.glsl",
+      "image": "images/DEC/Converge.png"
+    },
+    {
+      "title": "void r45 ( inout vec2 p) {",
+      "author": "mrange",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/void-r45-inout-vec2-p.glsl",
+      "image": "images/DEC/mrange_apollo1.png"
+    },
+    {
+      "title": "void rotT ( inout vec2 p, float a ) {",
+      "author": "mrange",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/void-rott-inout-vec2-p-float-a.glsl",
+      "image": "images/DEC/mrange_apollo2.png"
+    },
+    {
+      "title": "void rotT ( inout vec2 p, float a ) {",
+      "author": "mrange",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/void-rott-inout-vec2-p-float-a-2.glsl",
+      "image": "images/DEC/mrange_tree1.png"
+    },
+    {
+      "title": "void rotT ( inout vec2 p, float a ) {",
+      "author": "mrange",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/void-rott-inout-vec2-p-float-a-3.glsl",
+      "image": "images/DEC/mrange_tree2.png"
+    },
+    {
+      "title": "vec3 pmin ( vec3 a, vec3 b, vec3 k ) {",
+      "author": "mrange",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/vec3-pmin-vec3-a-vec3-b-vec3-k.glsl",
+      "image": "images/DEC/mrange_mandelbox.png"
+    },
+    {
+      "title": "// \"Philosopher Stoned\" by stb",
+      "author": "stb",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/philosopher-stoned-by-stb.glsl",
+      "image": "images/DEC/PhilosopherStoned.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "natchinoyuchi ( modified )",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-203.glsl",
+      "image": "images/DEC/ballFlake.png"
+    },
+    {
+      "title": "vec2 cmul( vec2 a, vec2 b ) { return vec2( a.x * b.x - a.y * b.y, a.x * b.y + a.y * b.x ); }",
+      "author": "guil",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/vec2-cmul-vec2-a-vec2-b-return-vec2-a-x-b-x-a-y-b-y-a-x-b-y-a-y-b-x.glsl",
+      "image": "images/DEC/greenDragon.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "stduhpf",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-204.glsl",
+      "image": "images/DEC/feeingers.png"
+    },
+    {
+      "title": "vec3 triangles ( vec3 p ) {",
+      "author": "krakel",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/vec3-triangles-vec3-p.glsl",
+      "image": "images/DEC/hexx.png"
+    },
+    {
+      "title": "float box ( vec3 p, vec3 b ) {",
+      "author": "zackpudil",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-box-vec3-p-vec3-b.glsl",
+      "image": "images/DEC/abbox.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "zackpudil",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-205.glsl",
+      "image": "images/DEC/sonolith.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "zackpudil",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-206.glsl",
+      "image": "images/DEC/blobelisk.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-207.glsl",
+      "image": "images/DEC/ringoo.png"
+    },
+    {
+      "title": "float de ( vec3 p ){",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-208.glsl",
+      "image": "images/DEC/shreddissimo.png"
+    },
+    {
+      "title": "float de( vec3 p ){",
+      "author": "Kamoshika",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-209.glsl",
+      "image": "images/DEC/gnollum.png"
+    },
+    {
+      "title": "float de ( vec3 p ) {",
+      "author": "aiekick",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-210.glsl",
+      "image": "images/DEC/cage.png"
+    },
+    {
+      "title": "float de ( vec3 P ) {",
+      "author": "Kamoshika",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-211.glsl",
+      "image": "images/DEC/stairs.png"
+    },
+    {
+      "title": "vec3 orbitColor;",
+      "author": "michael0884",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/vec3-orbitcolor.glsl",
+      "image": "images/DEC/jumpthecrater.png"
+    },
+    {
+      "title": "vec3 orbitColor;",
+      "author": "michael0884",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/vec3-orbitcolor-2.glsl",
+      "image": "images/DEC/toomanytrees.png"
+    },
+    {
+      "title": "vec3 orbitColor;",
+      "author": "michael0884",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/vec3-orbitcolor-3.glsl",
+      "image": "images/DEC/holeinone.png"
+    },
+    {
+      "title": "vec3 orbitColor;",
+      "author": "michael0884",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/vec3-orbitcolor-4.glsl",
+      "image": "images/DEC/aroundtheworld.png"
+    },
+    {
+      "title": "vec3 orbitColor;",
+      "author": "michael0884",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/vec3-orbitcolor-5.glsl",
+      "image": "images/DEC/bewareofbumps.png"
+    },
+    {
+      "title": "vec3 orbitColor;",
+      "author": "michael0884",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/vec3-orbitcolor-6.glsl",
+      "image": "images/DEC/mountainclimbing.png"
+    },
+    {
+      "title": "vec3 orbitColor;",
+      "author": "michael0884",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/vec3-orbitcolor-7.glsl",
+      "image": "images/DEC/mindthegap.png"
+    },
+    {
+      "title": "vec3 orbitColor;",
+      "author": "michael0884",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/vec3-orbitcolor-8.glsl",
+      "image": "images/DEC/thesponge.png"
+    },
+    {
+      "title": "vec3 orbitColor;",
+      "author": "michael0884",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/vec3-orbitcolor-9.glsl",
+      "image": "images/DEC/aroundthecitadel.png"
+    },
+    {
+      "title": "vec3 orbitColor;",
+      "author": "michael0884",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/vec3-orbitcolor-10.glsl",
+      "image": "images/DEC/megacitadel.png"
+    },
+    {
+      "title": "vec3 orbitColor;",
+      "author": "michael0884",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/vec3-orbitcolor-11.glsl",
+      "image": "images/DEC/buildupspeed.png"
+    },
+    {
+      "title": "mat2 rot (float a) { float c=cos(a),s=sin(a); return mat2(c,-s,s,c); }",
+      "author": "leon",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/mat2-rot-float-a-float-c-cos-a-s-sin-a-return-mat2-c-s-s-c.glsl",
+      "image": "images/DEC/ripplecube.png"
+    },
+    {
+      "title": "mat2 rot( float a ) {",
+      "author": "leon",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/mat2-rot-float-a-2.glsl",
+      "image": "images/DEC/kaleidomecha.png"
+    },
+    {
+      "title": "float de( vec3 p ){",
+      "author": "yonatan",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/float-de-vec3-p-212.glsl",
+      "image": "images/DEC/tree4.png"
+    },
+    {
+      "title": "vec3 Rotate(vec3 z,float AngPFXY,float AngPFYZ,float AngPFXZ) {",
+      "author": "scaprendering",
+      "category": "fractal",
+      "include": "./includes/dec/fractal/vec3-rotate-vec3-z-float-angpfxy-float-angpfyz-float-angpfxz.glsl",
+      "image": "images/DEC/trail.png"
+    },
+    {
+      "title": "#define sabs(a) sqrt(a * a + 0.005)",
+      "author": "gaziya5 aka gaz",
+      "category": "composed",
+      "include": "./includes/dec/composed/define-sabs-a-sqrt-a-a-0-005.glsl",
+      "image": "images/DEC/fractal_de39.png"
+    },
+    {
+      "title": "vec4 sphere (vec4 z) {",
+      "author": "gaziya5 aka gaz",
+      "category": "composed",
+      "include": "./includes/dec/composed/vec4-sphere-vec4-z.glsl",
+      "image": "images/DEC/fractal_de59.png"
+    },
+    {
+      "title": "float de2(vec3 p) {",
+      "author": "jorge2017a1",
+      "category": "composed",
+      "include": "./includes/dec/composed/float-de2-vec3-p.glsl",
+      "image": "images/DEC/fractal_de60.png"
+    },
+    {
+      "title": "void sphere_fold(inout vec3 z, inout float dz) {",
+      "author": "mrange",
+      "category": "composed",
+      "include": "./includes/dec/composed/void-sphere-fold-inout-vec3-z-inout-float-dz.glsl",
+      "image": "images/DEC/fractal_de62.png"
+    },
+    {
+      "title": "void sphere_fold(inout vec3 z, inout float dz) {",
+      "author": "evilryu",
+      "category": "composed",
+      "include": "./includes/dec/composed/void-sphere-fold-inout-vec3-z-inout-float-dz-2.glsl",
+      "image": "images/DEC/fractal_de64.png"
+    },
+    {
+      "title": "vec3 mod3(inout vec3 p, vec3 size) {",
+      "author": "mrange",
+      "category": "composed",
+      "include": "./includes/dec/composed/vec3-mod3-inout-vec3-p-vec3-size.glsl",
+      "image": "images/DEC/fractal_de65.png"
+    },
+    {
+      "title": "float periodic(float x,float period,float dutycycle){",
+      "author": "WAHa_06x36",
+      "category": "composed",
+      "include": "./includes/dec/composed/float-periodic-float-x-float-period-float-dutycycle.glsl",
+      "image": "images/DEC/fractal_de67.png"
+    },
+    {
+      "title": "vec2 Rot2D (vec2 q, float a)",
+      "author": "dr2",
+      "category": "composed",
+      "include": "./includes/dec/composed/vec2-rot2d-vec2-q-float-a.glsl",
+      "image": "images/DEC/fractal_de68.png"
+    },
+    {
+      "title": "vec2 Rot2D(vec2 q, float a)",
+      "author": "dr2",
+      "category": "composed",
+      "include": "./includes/dec/composed/vec2-rot2d-vec2-q-float-a-2.glsl",
+      "image": "images/DEC/fractal_de69.png"
+    },
+    {
+      "title": "mat2 rot(float a) {",
+      "author": "Kali",
+      "category": "composed",
+      "include": "./includes/dec/composed/mat2-rot-float-a.glsl",
+      "image": "images/DEC/fractal_de70.png"
+    },
+    {
+      "title": "float smin( float a, float b, float k ){",
+      "author": "glkt",
+      "category": "composed",
+      "include": "./includes/dec/composed/float-smin-float-a-float-b-float-k.glsl",
+      "image": "images/DEC/fractal_de71.png"
+    },
+    {
+      "title": "vec4 fold1(vec4 z) {",
+      "author": "unconed",
+      "category": "composed",
+      "include": "./includes/dec/composed/vec4-fold1-vec4-z.glsl",
+      "image": "images/DEC/fractal_de73.png"
+    },
+    {
+      "title": "void sphereFold(inout vec3 z, inout float dz){",
+      "author": "lewiz",
+      "category": "composed",
+      "include": "./includes/dec/composed/void-spherefold-inout-vec3-z-inout-float-dz.glsl",
+      "image": "images/DEC/fractal_de74.png"
+    },
+    {
+      "title": "float op_u(float d1, float d2){",
+      "author": "raziel",
+      "category": "composed",
+      "include": "./includes/dec/composed/float-op-u-float-d1-float-d2.glsl",
+      "image": "images/DEC/fractal_de77.png"
+    },
+    {
+      "title": "#define opRepEven(p,s) mod(p,s)-0.5*s",
+      "author": "gaziya5 aka gaz",
+      "category": "composed",
+      "include": "./includes/dec/composed/define-oprepeven-p-s-mod-p-s-0-5-s.glsl",
+      "image": "images/DEC/fractal_de83.png"
+    },
+    {
+      "title": "vec3 rot(vec3 p,vec3 a,float t){",
+      "author": "gaziya5 aka gaz",
+      "category": "composed",
+      "include": "./includes/dec/composed/vec3-rot-vec3-p-vec3-a-float-t.glsl",
+      "image": "images/DEC/fractal_de85.png"
+    },
+    {
+      "title": "float maxcomp(in vec3 p ){",
+      "author": "iq",
+      "category": "composed",
+      "include": "./includes/dec/composed/float-maxcomp-in-vec3-p.glsl",
+      "image": "images/DEC/fractal_de132.png"
+    },
+    {
+      "title": "float sdRoundBox( vec3 p, vec3 b, float r ){",
+      "author": "adapted from code by sdfgeoff",
+      "category": "composed",
+      "include": "./includes/dec/composed/float-sdroundbox-vec3-p-vec3-b-float-r.glsl",
+      "image": "images/DEC/fractal_de189.png"
+    },
+    {
+      "title": "float mandelbulb(vec3 p)",
+      "author": "neozhaoliang",
+      "category": "composed",
+      "include": "./includes/dec/composed/float-mandelbulb-vec3-p.glsl",
+      "image": "images/DEC/fractal_de202.png"
+    },
+    {
+      "title": "float sdBox( vec3 p, vec3 b ){",
+      "author": "plento",
+      "category": "composed",
+      "include": "./includes/dec/composed/float-sdbox-vec3-p-vec3-b.glsl",
+      "image": "images/DEC/fractal_de201.png"
+    },
+    {
+      "title": "float sdHexPrism( vec3 p, vec2 h ){",
+      "author": "russ",
+      "category": "composed",
+      "include": "./includes/dec/composed/float-sdhexprism-vec3-p-vec2-h.glsl",
+      "image": "images/DEC/fractal_de205.png"
+    },
+    {
+      "title": "float sdTriPrism( vec3 p, vec2 h ){",
+      "author": "russ",
+      "category": "composed",
+      "include": "./includes/dec/composed/float-sdtriprism-vec3-p-vec2-h.glsl",
+      "image": "images/DEC/fractal_de207.png"
+    },
+    {
+      "title": "float cylUnion(vec3 p){",
+      "author": "russ",
+      "category": "composed",
+      "include": "./includes/dec/composed/float-cylunion-vec3-p.glsl",
+      "image": "images/DEC/fractal_de208.png"
+    },
+    {
+      "title": "float cylUnion(vec3 p){",
+      "author": "russ",
+      "category": "composed",
+      "include": "./includes/dec/composed/float-cylunion-vec3-p-2.glsl",
+      "image": "images/DEC/fractal_de209.png"
+    },
+    {
+      "title": "float maxcomp(in vec3 p ) { return max(p.x,max(p.y,p.z));}",
+      "author": "jorge2017a1",
+      "category": "composed",
+      "include": "./includes/dec/composed/float-maxcomp-in-vec3-p-return-max-p-x-max-p-y-p-z.glsl",
+      "image": "images/DEC/fractal_de210.png"
+    },
+    {
+      "title": "Large Sierpinski area with cube superstructure",
+      "author": "butadiene",
+      "category": "composed",
+      "include": "./includes/dec/composed/large-sierpinski-area-with-cube-superstructure.glsl",
+      "image": "images/DEC/fractal_de206.png"
+    },
+    {
+      "title": "IcoDodecaStar",
+      "author": "tholzer",
+      "category": "composed",
+      "include": "./includes/dec/composed/icododecastar.glsl",
+      "image": "images/DEC/primitives/icododecastar.png"
+    },
+    {
+      "title": "Rack Wheel",
+      "author": "tholzer",
+      "category": "composed",
+      "include": "./includes/dec/composed/rack-wheel.glsl",
+      "image": "images/DEC/primitives/rackwheel.png"
+    },
+    {
+      "title": "float snoise(vec2 p) {",
+      "author": "karang",
+      "category": "composed",
+      "include": "./includes/dec/composed/float-snoise-vec2-p.glsl",
+      "image": "images/DEC/landskape.png"
+    },
+    {
+      "title": "float de(vec3 p){",
+      "author": "kamoshika",
+      "category": "composed",
+      "include": "./includes/dec/composed/float-de-vec3-p.glsl",
+      "image": "images/DEC/fractal_de249.png"
+    },
+    {
+      "title": "mat3 rotate( in vec3 v, in float angle) {",
+      "author": "XT95",
+      "category": "composed",
+      "include": "./includes/dec/composed/mat3-rotate-in-vec3-v-in-float-angle.glsl",
+      "image": "images/DEC/sponza.png"
+    },
+    {
+      "title": "// European 4 in 1 Chain Maille Pattern",
+      "author": "athibaul",
+      "category": "composed",
+      "include": "./includes/dec/composed/european-4-in-1-chain-maille-pattern.glsl",
+      "image": "images/DEC/E4-1.png"
+    },
+    {
+      "title": "// Moorish Rose Chain Maille Pattern",
+      "author": "athibaul",
+      "category": "composed",
+      "include": "./includes/dec/composed/moorish-rose-chain-maille-pattern.glsl",
+      "image": "images/DEC/MoorishRose.png"
+    },
+    {
+      "title": "float sdVerticalCapsule( vec3 p, float h, float r ) {",
+      "author": "theepicsnail",
+      "category": "composed",
+      "include": "./includes/dec/composed/float-sdverticalcapsule-vec3-p-float-h-float-r.glsl",
+      "image": "images/DEC/tree3.png"
+    },
+    {
+      "title": "float cube(vec4 cube, vec3 pos){",
+      "author": "psonice",
+      "category": "composed",
+      "include": "./includes/dec/composed/float-cube-vec4-cube-vec3-pos.glsl",
+      "image": "images/DEC/weave.png"
+    },
+    {
+      "title": "float cube(vec4 cube, vec3 pos){",
+      "author": "psonice",
+      "category": "composed",
+      "include": "./includes/dec/composed/float-cube-vec4-cube-vec3-pos-2.glsl",
+      "image": "images/DEC/warpWeave.png"
+    },
+    {
+      "title": "float box ( vec3 p, vec3 b ) {",
+      "author": "zackpudil",
+      "category": "composed",
+      "include": "./includes/dec/composed/float-box-vec3-p-vec3-b.glsl",
+      "image": "images/DEC/pbrHall.png"
+    }
+  ]
+}

@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="High-performance WebGL fractal explorer with ray marching" />
+    <title>PAR Fractal Explorer</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #000;
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+          sans-serif;
+      }
+
+      #canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      #loading {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-size: 18px;
+        text-align: center;
+        z-index: 1000;
+        transition: opacity 0.8s ease;
+        max-width: 400px;
+      }
+
+      #loading.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .spinner {
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-top: 3px solid #5af;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+        margin: 20px auto;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      #loading-status {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #aaa;
+        min-height: 20px;
+      }
+
+      #loading-progress {
+        width: 300px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 2px;
+        margin: 15px auto 10px;
+        overflow: hidden;
+      }
+
+      #loading-progress-bar {
+        height: 100%;
+        background: linear-gradient(90deg, #5af, #a5f);
+        width: 0%;
+        transition: width 0.3s ease;
+        border-radius: 2px;
+      }
+
+      #stats {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+      }
+
+      #gui-container {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 100;
+      }
+      /* Make lil-gui panel flush with the right edge */
+      .lil-gui {
+        margin-right: 0 !important;
+      }
+
+      #help-overlay {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.9);
+        color: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        max-width: 500px;
+        z-index: 2000;
+        display: none;
+      }
+
+      #help-overlay.visible {
+        display: block;
+      }
+
+      #help-overlay h2 {
+        margin-bottom: 20px;
+        color: #5af;
+      }
+
+      #help-overlay .shortcuts {
+        line-height: 1.8;
+      }
+
+      #help-overlay .key {
+        display: inline-block;
+        background: #333;
+        padding: 2px 8px;
+        border-radius: 3px;
+        margin: 0 5px;
+        font-family: monospace;
+        font-weight: bold;
+        color: #5af;
+      }
+
+      #help-overlay .close {
+        margin-top: 20px;
+        text-align: center;
+        color: #888;
+        font-size: 14px;
+      }
+
+      /* GUI info buttons and dialog */
+      .gui-info-btn {
+        box-sizing: border-box;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 16px !important;
+        height: 16px !important;
+        min-width: 16px !important;
+        min-height: 16px !important;
+        border-radius: 50% !important;
+        border: 1px solid #666 !important;
+        background: transparent !important;
+        color: #aaa !important;
+        font-size: 11px !important;
+        line-height: 14px !important;
+        text-align: center !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        cursor: pointer !important;
+      }
+      .gui-info-btn:hover {
+        color: #fff !important;
+        border-color: #9ad !important;
+      }
+      /* Ensure visibility inside lil-gui rows */
+      .lil-gui .controller {
+        position: relative;
+        overflow: visible !important;
+        padding-right: 22px;
+      }
+      .lil-gui .controller .gui-info-btn {
+        position: absolute !important;
+        right: 2px !important;
+        z-index: 50 !important;
+      }
+      /* Override lil-gui button stretch for our info buttons */
+      .lil-gui .controller.function .gui-info-btn,
+      .lil-gui .controller .widget .gui-info-btn,
+      .lil-gui .controller button.gui-info-btn {
+        width: 16px !important;
+      }
+      .gui-info-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 3000;
+      }
+      /* Ensure text selection is allowed inside the info overlay/modal on all browsers */
+      .gui-info-overlay,
+      .gui-info-overlay *,
+      .gui-info-modal,
+      .gui-info-modal * {
+        -webkit-user-select: text;
+        -moz-user-select: text;
+        -ms-user-select: text;
+        user-select: text;
+        cursor: text;
+      }
+      .gui-info-modal {
+        background: #111;
+        color: #ddd;
+        padding: 16px 18px;
+        border-radius: 6px;
+        max-width: 420px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        border: 1px solid #333;
+      }
+      .gui-info-modal ::selection {
+        background: #7ac1ff;
+        color: #000;
+      }
+      .gui-info-modal h3 {
+        margin: 0 0 8px;
+        color: #8fd;
+        font-size: 16px;
+      }
+      .gui-info-modal p {
+        margin: 0;
+        line-height: 1.5;
+        font-size: 13px;
+        color: #cfc;
+      }
+      .gui-info-close {
+        margin-top: 12px;
+        text-align: right;
+      }
+      .gui-info-close button {
+        padding: 6px 10px;
+        background: #222;
+        color: #ccc;
+        border: 1px solid #444;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .gui-info-close button:hover {
+        color: #fff;
+        border-color: #9ad;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+
+    <div id="loading">
+      <div class="spinner"></div>
+      <div>PAR Fractal Explorer</div>
+      <div id="loading-progress">
+        <div id="loading-progress-bar"></div>
+      </div>
+      <div id="loading-status">Initializing...</div>
+    </div>
+
+    <div id="stats"></div>
+    <div id="gui-container"></div>
+
+    <div id="help-overlay">
+      <h2>🎨 PAR Fractal Explorer - Controls</h2>
+      <div class="shortcuts">
+        <strong>🎮 Movement:</strong><br />
+        <span class="key">W</span><span class="key">A</span><span class="key">S</span
+        ><span class="key">D</span> Move camera<br />
+        <span class="key">E</span> Move up · <span class="key">Q</span> Move down<br />
+        <span class="key">Mouse</span> Look around (click to lock)<br />
+        <br />
+        <strong>🔧 Controls:</strong><br />
+        <span class="key">H</span> Toggle this help<br />
+        <span class="key">O</span> Reset camera position · <span class="key">R</span> Toggle
+        auto‑rotate · <span class="key">M</span> Toggle morph<br />
+        <br />
+        <strong>🌀 Fractals:</strong><br />
+        <span class="key">1</span> Primitives · <span class="key">2</span> Menger Sponge<br />
+        <span class="key">3</span> Mandelbulb · <span class="key">4</span> Sierpinski<br />
+        <span class="key">5</span> Mandelbox · <span class="key">6</span> World (Amazing Surf) ·
+        <span class="key">7</span> World (Truchet Pipes)<br />
+        <span class="key">[</span><span class="key">]</span> Decrease/Increase iterations<br />
+        <br />
+        <strong>🎨 Visual Presets:</strong><br />
+        Use the dropdown at the top of the GUI panel →<br />
+        <em style="color: #888; font-size: 12px"
+          >Deep Ocean, Molten, Electric, Organic, Performance, Monochrome</em
+        ><br />
+        <br />
+        <strong>⚙️ GUI Panel:</strong><br />
+        Adjust fractal type, colors, lighting, performance, and more!<br />
+        <em style="color: #9ad; font-size: 12px"
+          >Environment → Floor Receives Shadows toggles floor shadowing. Fog uses resolved distance;
+          floor AO is disabled by design.</em
+        ><br />
+        <em style="color: #9ad; font-size: 12px"
+          >Camera → Fly Mode (Pitch Forward) is handy for World scenes.</em
+        ><br />
+        <em style="color: #9ad; font-size: 12px"
+          >World tips: Segment integrator is faster; if thin shells show far “shelves”, lower
+          Segment Clamp and/or raise DE Safety, or switch to Sphere.</em
+        ><br />
+      </div>
+      <div class="close">
+        Press <span class="key">H</span> or <span class="key">Esc</span> to close
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

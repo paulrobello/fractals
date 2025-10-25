@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Distance Estimator Compendium (DEC)</title>
+		<link rel="stylesheet" type="text/css" rel="noopener" target="_blank" href="../style.css">
+		<style>
+		table, th, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+			text-align: Left;
+			padding: 4px;
+		}
+
+		td.fitwidth {
+			/* width: 1px; */
+			white-space: nowrap;
+		}
+
+		img{
+			height:200px;
+		}
+
+		td.fitwidth:hover img {
+			height:480px;
+		}
+
+		button {
+			background:none!important;
+			border:none;
+			padding:0!important;
+
+			color:blue;
+			text-decoration:none;
+			text-shadow: 0px 0px 1px cyan;
+			transition:.618s ease-out;
+
+			font-size: 16px;
+			font-weight: 500;
+		}
+		button:hover{
+			text-decoration:underline;
+			color:#FF1203;
+			text-shadow: 0px 0px 3px magenta;
+			transition:0s
+		}
+		</style>
+
+		<link rel="stylesheet" href="highlightjs/styles/pojoaque.min.css">
+		<script src="highlightjs/highlight.min.js"></script>
+		<!-- <script>hljs.highlightAll();</script> -->
+
+		<script type="text/javascript">
+			// toggles to show/hide each section
+			var showPrimitives = new Boolean(false);
+			var showOperators  = new Boolean(false);
+			var showFractals   = new Boolean(false);
+			var showComposed   = new Boolean(false);
+
+			// populated on load, these hold to the table data
+			var primitiveTable;
+			var operatorsTable;
+			var fractalsTable;
+			var composedTable;
+
+			// keep track of the number of entries in each section
+			var primitiveCount;
+			var operatorsCount;
+			var fractalsCount;
+			var composedCount;
+
+			function loadJSON(callback) {
+				var xobj = new XMLHttpRequest();
+				xobj.overrideMimeType("application/json");
+				xobj.open('GET', 'https://jbaker.graphics/writings/DECentries.json', true); // Replace 'appDataServices' with the path to your file
+				xobj.onreadystatechange = function () {
+					if ( xobj.readyState == 4 && xobj.status == "200" ) {
+						// Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+						callback(xobj.responseText);
+					}
+				};
+				xobj.send(null);
+			}
+
+			var actual_JSON;
+			function populateTables(){ // called on load, populates lists
+				loadJSON(function(response) {
+				// Parsing JSON string into object
+				actual_JSON = JSON.parse(response);
+
+				// Create a HTML Table elements.
+				var primitiveTable = document.createElement("TABLE");
+				primitiveTable.border = "1";
+				var row = primitiveTable.insertRow(-1);
+				var headerCell = document.createElement("TH");
+				headerCell.innerHTML = "Author";
+				row.appendChild(headerCell);
+
+				headerCell = document.createElement("TH");
+				headerCell.innerHTML = "Code";
+				row.appendChild(headerCell);
+
+				headerCell = document.createElement("TH");
+				headerCell.innerHTML = "Example";
+				row.appendChild(headerCell);
+
+
+
+				var operatorsTable = document.createElement("TABLE");
+				operatorsTable.border = "1";
+				var row = operatorsTable.insertRow(-1);
+				headerCell = document.createElement("TH");
+				headerCell.innerHTML = "Author";
+				row.appendChild(headerCell);
+
+				headerCell = document.createElement("TH");
+				headerCell.innerHTML = "Code";
+				row.appendChild(headerCell);
+
+				headerCell = document.createElement("TH");
+				headerCell.innerHTML = "Example";
+				row.appendChild(headerCell);
+
+
+
+				var fractalsTable = document.createElement("TABLE");
+				fractalsTable.border = "1";
+				var row = fractalsTable.insertRow(-1);
+				headerCell = document.createElement("TH");
+				headerCell.innerHTML = "Author";
+				row.appendChild(headerCell);
+
+				headerCell = document.createElement("TH");
+				headerCell.innerHTML = "Code";
+				row.appendChild(headerCell);
+
+				headerCell = document.createElement("TH");
+				headerCell.innerHTML = "Example";
+				row.appendChild(headerCell);
+
+
+
+				var composedTable = document.createElement("TABLE");
+				composedTable.border = "1";
+				var row = composedTable.insertRow(-1);
+				headerCell = document.createElement("TH");
+				headerCell.innerHTML = "Author";
+				row.appendChild(headerCell);
+
+				headerCell = document.createElement("TH");
+				headerCell.innerHTML = "Code";
+				row.appendChild(headerCell);
+
+				headerCell = document.createElement("TH");
+				headerCell.innerHTML = "Example";
+				row.appendChild(headerCell);
+
+				primitiveCount=0;
+				operatorsCount=0;
+				fractalsCount=0;
+				composedCount=0;
+
+
+				for (let [key, value] of Object.entries(actual_JSON)) {
+					Object.values(value).forEach(value => {
+
+					// switch on type - put into the correct table, stored globally
+					switch(value["category"]){
+						case "primitive": // put table row in primitive list
+							var row = primitiveTable.insertRow(-1);
+							var cell = row.insertCell(-1);
+							cell.innerHTML = "<pre><code>" + value["author"] + "</code></pre>"; // author
+
+							var cell = row.insertCell(-1);
+							cell.innerHTML = "<pre><code>" + hljs.highlight(value["code"], {language: 'cpp'}).value + "</code></pre>"; // code
+							cell.style.color = "#dccd8c";
+							cell.style.backgroundImage = "url(./highlightjs/styles/pojoaque.jpg)"
+
+							var cell = row.insertCell(-1);
+							if(value["image"] != ""){
+								primitiveCount++;
+								var img = document.createElement("img");
+								img.src = value["image"];
+								img.display = "inline";
+								img.height = "200px";
+								cell.className = "fitwidth";
+								cell.appendChild(img); // example image
+							}
+
+							break;
+
+						case "operator": // put table row in operator list
+							var row = operatorsTable.insertRow(-1);
+							var cell = row.insertCell(-1);
+							cell.innerHTML = "<pre><code>" + value["author"] + "</code></pre>"; // author
+
+							var cell = row.insertCell(-1);
+							cell.innerHTML = "<pre><code>" + hljs.highlight(value["code"], {language: 'cpp'}).value + "</code></pre>"; // code
+							cell.style.color = "#dccd8c";
+							cell.style.backgroundImage = "url(./highlightjs/styles/pojoaque.jpg)"
+
+							var cell = row.insertCell(-1);
+							if(value["image"] != ""){
+								operatorsCount++;
+								var img = document.createElement("img");
+								img.src = value["image"];
+								img.display = "inline";
+								img.height = "200px";
+								cell.className = "fitwidth";
+								cell.appendChild(img); // example image
+							}
+
+							break;
+
+						case "fractal": // put table row in fractal list
+							var row = fractalsTable.insertRow(-1);
+							var cell = row.insertCell(-1);
+							cell.innerHTML = "<pre><code>" + value["author"] + "</code></pre>"; // author
+
+							fractalsCount++;
+
+							var cell = row.insertCell(-1);
+							cell.innerHTML = "<pre><code>" + hljs.highlight(value["code"], {language: 'cpp'}).value + "</code></pre>"; // code
+							cell.style.color = "#dccd8c";
+							cell.style.backgroundImage = "url(./highlightjs/styles/pojoaque.jpg)"
+
+							var cell = row.insertCell(-1);
+							var img = document.createElement("img");
+							img.src = value["image"];
+							img.display = "inline";
+							img.height = "200px";
+
+							cell.className = "fitwidth";
+							cell.appendChild(img); // example image
+							break;
+
+						case "composed": // put table row in composed list
+							var row = composedTable.insertRow(-1);
+							var cell = row.insertCell(-1);
+							cell.innerHTML = "<pre><code>" + value["author"] + "</code></pre>"; // author
+
+							composedCount++;
+
+							var cell = row.insertCell(-1);
+							cell.innerHTML = "<pre><code>" + hljs.highlight(value["code"], {language: 'cpp'}).value + "</code></pre>"; // code
+							cell.style.color = "#dccd8c";
+							cell.style.backgroundImage = "url(./highlightjs/styles/pojoaque.jpg)"
+
+							var cell = row.insertCell(-1);
+							var img = document.createElement("img");
+							img.src = value["image"];
+							img.display = "inline";
+							img.height = "200px";
+
+							cell.className = "fitwidth";
+							cell.appendChild(img); // example image
+							break;
+
+						default:
+							break;
+					}
+				});
+			}
+
+				var primitiveTableElement = document.getElementById("primitiveTableElement");
+				primitiveTableElement.innerHTML = "";
+				primitiveTableElement.appendChild(primitiveTable);
+				primitiveTableElement.style.display = "none";
+				showPrimitives = false;
+				// set initial value for button label
+				document.getElementById("primitivebutton").innerHTML = "▶ Primitives (" + primitiveCount + " entries)" ;
+
+				var operatorTableElement = document.getElementById("operatorTableElement");
+				operatorTableElement.innerHTML = "";
+				operatorTableElement.appendChild(operatorsTable);
+				operatorTableElement.style.display = "none";
+				showOperators = false;
+				// set initial value for button label
+				document.getElementById("operatorbutton").innerHTML = "▶ Operators (" + operatorsCount + " entries - WIP)" ;
+
+				var fractalTableElement = document.getElementById("fractalTableElement");
+				fractalTableElement.innerHTML = "";
+				fractalTableElement.appendChild(fractalsTable);
+				fractalTableElement.style.display = "none";
+				showFractals = false;
+				// set initial value for button label
+				document.getElementById("fractalbutton").innerHTML = "▶ Fractals (" + fractalsCount + " entries)" ;
+
+				var composedTableElement = document.getElementById("composedTableElement");
+				composedTableElement.innerHTML = "";
+				composedTableElement.appendChild(composedTable);
+				composedTableElement.style.display = "none";
+				showComposed = false;
+				// set initial value for button label
+				document.getElementById("composedbutton").innerHTML = "▶ Composed Shapes (" + composedCount + " entries)" ;
+				});
+			}
+
+			function togglePrimitives(){ // called from the primitive toggle button
+				// check if primitive list is shown
+				if ( showPrimitives ) {  // if yes, hide
+					var primitiveTableElement = document.getElementById("primitiveTableElement");
+					primitiveTableElement.style.display = "none";
+					showPrimitives = false;
+					// change button label
+					document.getElementById("primitivebutton").innerHTML = "▶ Primitives (" + primitiveCount + " entries)" ;
+				} else {               // if no, show
+					var primitiveTableElement = document.getElementById("primitiveTableElement");
+					primitiveTableElement.style.display = "inline";
+					showPrimitives = true;
+					// change button label
+					document.getElementById("primitivebutton").innerHTML = "▼ Primitives (" + primitiveCount + " entries)" ;
+				}
+			}
+
+			function toggleOperators(){
+				if ( showOperators ) {
+					var operatorTableElement = document.getElementById("operatorTableElement");
+					operatorTableElement.style.display = "none";
+					showOperators = false;
+					document.getElementById("operatorbutton").innerHTML = "▶ Operators (" + operatorsCount + " entries - WIP)" ;
+				} else {
+					var operatorTableElement = document.getElementById("operatorTableElement");
+					operatorTableElement.style.display = "inline";
+					showOperators = true;
+					document.getElementById("operatorbutton").innerHTML = "▼ Operators (" + operatorsCount + " entries - WIP)" ;
+				}
+			}
+
+			function toggleFractals(){
+				if ( showFractals ) {
+					var fractalTableElement = document.getElementById("fractalTableElement");
+					fractalTableElement.style.display = "none";
+					showFractals = false;
+					document.getElementById("fractalbutton").innerHTML = "▶ Fractals (" + fractalsCount + " entries)" ;
+				} else {
+					var fractalTableElement = document.getElementById("fractalTableElement");
+					fractalTableElement.style.display = "inline";
+					showFractals = true;
+					document.getElementById("fractalbutton").innerHTML = "▼ Fractals (" + fractalsCount + " entries)" ;
+				}
+			}
+
+			function toggleComposed(){
+				if ( showComposed ) {
+					var composedTableElement = document.getElementById("composedTableElement");
+					composedTableElement.style.display = "none";
+					showComposed = false;
+					document.getElementById("composedbutton").innerHTML = "▶ Composed Shapes (" + composedCount + " entries)" ;
+				} else {
+					var composedTableElement = document.getElementById("composedTableElement");
+					composedTableElement.style.display = "inline";
+					showComposed = true;
+					document.getElementById("composedbutton").innerHTML = "▼ Composed Shapes (" + composedCount + " entries)" ;
+				}
+			}
+		</script>
+		<style>
+		@import url('https://fonts.googleapis.com/css2?family=Rokkitt:wght@600&display=swap');
+		</style>
+		<link rel="icon" href="https://jbaker.graphics/resources/icon.png" type="image/x-icon">
+	</head>
+	<body onload="populateTables();">
+		<h1 style='display:inline-block'>Jon Baker, Graphics Programming</h1>
+		<p style='display:inline-block'> &nbsp; &nbsp; <a href='../index.html'>home</a></p>
+		<p style='display:inline-block'> &nbsp; &nbsp; <a href='index.html'>writings</a></p>
+		<div style='width:768px; margin:0px 0px 0px 25px'>
+			<h2>The Distance Estimator Compendium (DEC)</h2>
+			<div style='margin: 0px 0px 0px 15px'>
+				<a id="introduction"></a><h2>Introduction</h2>
+			</div>
+			<div style='margin: 0px 0px 0px 25px'>
+				<p>
+					&nbsp;My goal here is to provide a collected resource of these signed distance functions (SDFs) in a standardized format given by <code>float de( vec3 p ){...}</code>.
+				</p>
+				<p>
+					&nbsp;SDFs are an interesting method for representing geometry as an implicit functional representation, which produces a result by querying with a given point in space and returning an estimate of the distance to the surface - positive outside, and negative inside. I emphasize that this result is an estimate, especially for some of the fractal SDFs which produce a result by distorting the space in a highly nonlinear fashion.
+				</p>
+				<p>
+					&nbsp;This representation is often used in realtime raymarching, but they come up in applications such as pathtracing and producing of meshes. I have seen several resources on this topic but I hope to gather as much as I can in one place on this page.
+				</p>
+				<p>
+					&nbsp;Click titles to show/hide section. Mouse over each of the images to view it larger.
+				</p>
+				<div style='margin: 0px 0px 0px 30px'>
+					<button id="primitivebutton" onclick="togglePrimitives();"></button>
+					<div id="primitiveTableElement"></div>
+					<br><br>
+					<button id="operatorbutton" onclick="toggleOperators();"></button>
+					<div id="operatorTableElement"></div>
+					<br><br>
+					<button id="fractalbutton" onclick="toggleFractals();"></button>
+					<div id="fractalTableElement"></div>
+					<br><br>
+					<button id="composedbutton" onclick="toggleComposed();"></button>
+					<div id="composedTableElement"></div>
+				</div>
+			</div>
+
+			<div style='margin: 0px 0px 0px 15px'>
+				<a id="licensing"></a><h2>Licensing</h2>
+			</div>
+				<div style='margin: 0px 0px 0px 25px'>
+					<p>
+						&nbsp; This is an educational resource provided under the <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/legalcode"> CC Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+					</p>
+					<p>
+						&nbsp; This is the default Shadertoy license unless otherwise specified by the shader author, the same license provided with the hg_sdf header. There are some utility functions referenced which are provided by the <a href="../resources/noise.glsl">Twigl noise header</a>, available under the MIT license, and the <a href="../resources/hg_sdf.glsl">hg_sdf header</a>. The primitives provided by Inigo Quilez are under the <a href="images/DEC/inigo.txt">MIT License</a>.
+					</p>
+					<p>
+						&nbsp; I have gathered these distance estimator functions from several sources (discussions with individuals, the hg_sdf header, Shadertoy examples, code deobfuscated from the #つぶやきGLSL tag on Twitter, among others). I have done my best to give credit to the authors, but I do not have a complete record - if you have information to that end, please contact me via email. If you are doing something cool with them, or would like to contribute to this resource, please contact me at jb239812@ohio.edu.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<br>
+		<p>Last updated 4/6/2024</p>
+		<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fjbaker.graphics%2Fwritings%2FDEC.html&count_bg=%23C1BC99&title_bg=%23918F74&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false" width="100" style="height: 20px;"/></a>
+	</body>
+</html>

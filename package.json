@@ -1,0 +1,42 @@
+{
+  "name": "fractal-explorer",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "High-performance WebGL fractal explorer with ray marching",
+  "main": "src/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "keywords": [
+    "fractals",
+    "webgl",
+    "threejs",
+    "ray-marching",
+    "glsl",
+    "mandelbulb",
+    "menger-sponge"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "lil-gui": "^0.20.0",
+    "monaco-editor": "^0.53.0",
+    "stats-js": "^1.0.1",
+    "stats.js": "^0.17.0",
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.12.0",
+    "eslint": "^9.12.0",
+    "globals": "^15.12.0",
+    "prettier": "^3.3.3",
+    "vite": "^7.1.9",
+    "vite-plugin-glsl": "^1.5.4"
+  }
+}
