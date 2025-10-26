@@ -164,14 +164,15 @@ class FractalExplorer {
     this.setupGUI();
 
     // Apply default preset on first run when no saved quality AND no overrides exist
-    try {
-      const hasOverrides = hasOverridesInStorage();
-      if (!saved && !hasOverrides) {
-        if (this.guiManager && this.guiManager.applyPreset) {
-          this.guiManager.applyPreset('Truchet Interior (Perf)');
-        }
-      }
-    } catch (_) {}
+    // Disabled: Let users start with defaults instead of a preset
+    // try {
+    //   const hasOverrides = hasOverridesInStorage();
+    //   if (!saved && !hasOverrides) {
+    //     if (this.guiManager && this.guiManager.applyPreset) {
+    //       this.guiManager.applyPreset('Truchet Interior (Perf)');
+    //     }
+    //   }
+    // } catch (_) {}
 
     this.updateLoadingProgress(95, 'Finalizing...');
     this.setupEventListeners();

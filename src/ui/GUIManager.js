@@ -269,7 +269,7 @@ export class GUIManager {
       showStats: true,
       budgetPreset: 'Quality',
       budgetEstimate: '',
-      showDebugOverlay: true,
+      showDebugOverlay: false,
       autoResolutionEnabled: false,
       autoResHoldFrames: DEFAULTS.autoResHoldFrames,
       autoResSustainLow: DEFAULTS.autoResSustainLow,
