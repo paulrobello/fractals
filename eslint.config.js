@@ -12,7 +12,7 @@ export default [
 
   // App source (browser, ES modules)
   {
-    files: ['src/**/*.js', 'scripts/**/*.js'],
+    files: ['src/**/*.js'],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
@@ -48,6 +48,19 @@ export default [
       ecmaVersion: 2022,
       sourceType: 'module',
       globals: globals.node,
+    },
+  },
+
+  // Scripts run in Node context
+  {
+    files: ['scripts/**/*.{js,mjs}'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: globals.node,
+    },
+    rules: {
+      'no-console': 'off',
     },
   },
 ];

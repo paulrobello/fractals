@@ -3,33 +3,62 @@ name: Claude Code Review
 on:
   pull_request:
     types: [opened, synchronize]
-    # Optional: Only run on specific file changes
-    # paths:
-    #   - "src/**/*.ts"
-    #   - "src/**/*.tsx"
-    #   - "src/**/*.js"
-    #   - "src/**/*.jsx"
+    paths:
+      - "src/**/*.js"
+      - "src/**/*.glsl"
+      - "src/**/*.frag"
+      - "src/**/*.vert"
+      - "package.json"
+      - "package-lock.json"
+      - "vite.config.js"
+      - "eslint.config.js"
+      - ".github/workflows/**"
 
 jobs:
-  claude-review:
-    # Optional: Filter by PR author
-    # if: |
-    #   github.event.pull_request.user.login == 'external-contributor' ||
-    #   github.event.pull_request.user.login == 'new-developer' ||
-    #   github.event.pull_request.author_association == 'FIRST_TIME_CONTRIBUTOR'
-
+  lint-and-format:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      pull-requests: read
-      issues: read
-      id-token: write
+      pull-requests: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.17'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+        continue-on-error: true
+
+      - name: Check formatting
+        run: npm run format:check
+        continue-on-error: true
+
+  claude-review:
+    needs: lint-and-format
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: read
+      id-token: write
+      actions: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Run Claude Code Review
         id: claude-review
@@ -40,18 +69,38 @@ jobs:
             REPO: ${{ github.repository }}
             PR NUMBER: ${{ github.event.pull_request.number }}
 
-            Please review this pull request and provide feedback on:
-            - Code quality and best practices
-            - Potential bugs or issues
-            - Performance considerations
-            - Security concerns
-            - Test coverage
+            Please review this pull request for the WebGL fractal explorer project.
 
-            Use the repository's CLAUDE.md for guidance on style and conventions. Be constructive and helpful in your feedback.
+            PROJECT CONTEXT:
+            - High-performance WebGL/Three.js ray marching fractal renderer
+            - GLSL shaders are the core rendering system (not traditional Three.js meshes)
+            - Modular architecture: FractalExplorer, Renderer, ShaderManager, Controls, UI, GUIManager
+            - Performance-critical: GPU benchmarking, shader specialization, budget LOD
+            - See CLAUDE.md for complete architecture documentation
+
+            REVIEW FOCUS AREAS:
+            - **Shader code** (.glsl files): Distance estimation accuracy, ray marching efficiency, compile-time optimizations
+            - **Performance**: GPU cost, uniform updates, shader specialization usage, memory allocations
+            - **Three.js patterns**: Proper disposal, scene graph management, material caching
+            - **Code quality**: ES6+ patterns, type safety (JSDoc where appropriate), error handling
+            - **Architecture**: Module boundaries, state management (uniforms flow), class responsibilities
+            - **WebGL best practices**: Context loss handling, precision qualifiers, uniform limits
+
+            SPECIFIC CHECKS:
+            - Do shader changes maintain distance estimation correctness?
+            - Are new uniforms properly synced in ShaderManager and GUIManager?
+            - Does code follow the modular class architecture?
+            - Are performance-critical paths optimized (avoid allocations in animation loop)?
+            - Are shader includes properly imported in ShaderManager?
+            - Is shader specialization triggered after fractal type changes?
+
+            Use the repository's CLAUDE.md for detailed guidance on style and conventions.
 
             Use `gh pr comment` with your Bash tool to leave your review as a comment on the PR.
+            Include specific line references and constructive suggestions.
 
-          # See https://github.com/anthropics/claude-code-action/blob/main/docs/usage.md
-          # or https://docs.claude.com/en/docs/claude-code/cli-reference for available options
-          claude_args: '--allowed-tools "Bash(gh issue view:*),Bash(gh search:*),Bash(gh issue list:*),Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr list:*)"'
+          additional_permissions: |
+            actions: read
+
+          claude_args: '--allowed-tools "Bash(gh issue view:*),Bash(gh search:*),Bash(gh issue list:*),Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr list:*),Bash(gh api:*)"'
 

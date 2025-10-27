@@ -81,7 +81,7 @@ export class PerformanceTest {
     // We still snapshot and restore to be safe.
 
     // Warm-up GPU for consistent clocks/caches.
-    await this.warmup(20);
+    await this.warmup(document.visibilityState === 'hidden' ? 3 : 20);
 
     // Measure canonical quality tiers so labels match budgets
     const tiers = {
@@ -155,7 +155,7 @@ export class PerformanceTest {
     await this.waitFrames(10);
 
     // Measure delivered frame rate using the app's RAF (no manual renders)
-    const frameCount = 180; // ~1.5s at 120 Hz for stability
+    const frameCount = document.visibilityState === 'hidden' ? 45 : 180; // shorter when backgrounded
     const t0 = performance.now();
     await this.waitFrames(frameCount);
     const t1 = performance.now();
@@ -189,7 +189,7 @@ export class PerformanceTest {
 
     // Warm-up in-place
     await this.waitFrames(10);
-    const frameCount = 240; // ~2s at 120Hz
+    const frameCount = document.visibilityState === 'hidden' ? 60 : 240; // shorter when backgrounded
     const t0 = performance.now();
     await this.waitFrames(frameCount);
     const t1 = performance.now();

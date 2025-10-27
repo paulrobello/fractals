@@ -19,16 +19,32 @@ jobs:
       (github.event_name == 'issues' && (contains(github.event.issue.body, '@claude') || contains(github.event.issue.title, '@claude')))
     runs-on: ubuntu-latest
     permissions:
-      contents: read
-      pull-requests: read
-      issues: read
+      contents: write  # Allow Claude to commit fixes
+      pull-requests: write  # Allow Claude to update PRs
+      issues: write  # Allow Claude to comment and update issues
       id-token: write
-      actions: read # Required for Claude to read CI results on PRs
+      actions: read  # Required for Claude to read CI results on PRs
+      workflows: write  # Allow Claude to update workflow files
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          fetch-depth: 0  # Full history for better context
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.17'
+          cache: 'npm'
+
+      - name: Install dependencies (if needed)
+        run: |
+          if [ -f "package-lock.json" ]; then
+            npm ci
+          fi
+        shell: bash
 
       - name: Run Claude Code
         id: claude
@@ -36,15 +52,46 @@ jobs:
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
 
-          # This is an optional setting that allows Claude to read CI results on PRs
           additional_permissions: |
             actions: read
+            workflows: write
 
-          # Optional: Give a custom prompt to Claude. If this is not specified, Claude will perform the instructions specified in the comment that tagged it.
-          # prompt: 'Update the pull request description to include a summary of changes.'
+          # Project-specific context for Claude
+          # Claude will follow instructions from the @claude mention
+          # But will have this context available
+          claude_args: |
+            --model claude-sonnet-4-5-20250929
+            --allowed-tools "Bash(npm:*),Bash(gh:*),Bash(git:*),Bash(node:*)"
+            --system-prompt "
+            PROJECT: WebGL Fractal Explorer - High-performance GPU ray marching renderer
 
-          # Optional: Add claude_args to customize behavior and configuration
-          # See https://github.com/anthropics/claude-code-action/blob/main/docs/usage.md
-          # or https://docs.claude.com/en/docs/claude-code/cli-reference for available options
-          # claude_args: '--allowed-tools Bash(gh pr:*)'
+            ARCHITECTURE:
+            - Core: Three.js + GLSL shaders (ray marching, not mesh-based)
+            - Modules: FractalExplorer, Renderer, ShaderManager, Controls, UI, GUIManager
+            - Shaders: src/shaders/ (fractal.frag.glsl is main entry point)
+            - Performance: GPU benchmarking, shader specialization, budget LOD system
+
+            KEY FILES:
+            - src/app/ShaderManager.js - Owns all uniforms (canonical state)
+            - src/shaders/fractal.frag.glsl - Main ray marching shader
+            - src/shaders/includes/ - Modular GLSL code (SDFs, lighting, textures)
+            - src/ui/GUIManager.js - 100+ parameters, syncs to uniforms
+            - CLAUDE.md - Complete architecture and development guide
+
+            IMPORTANT PATTERNS:
+            - Uniforms flow: GUIManager.params → ShaderManager.uniforms → GLSL
+            - Shader changes require specialization rebuild
+            - No allocations in animation loop (performance-critical)
+            - Distance estimation must be mathematically correct
+            - All shader includes must be imported in ShaderManager
+
+            AVAILABLE COMMANDS:
+            - npm run dev (port 3333)
+            - npm run lint / npm run lint:fix
+            - npm run format / npm run format:check
+            - npm run build / npm run preview
+
+            Always refer to CLAUDE.md for detailed guidance.
+            "
+
 

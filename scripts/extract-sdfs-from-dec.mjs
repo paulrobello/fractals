@@ -28,6 +28,7 @@ function sanitizeCode(code) {
   // Normalize line endings and strip leading/trailing blank lines
   let s = code.replace(/\r\n?/g, '\n');
   // Some entries have stray non-ASCII or BOMs; remove control chars except tabs/newlines
+  // eslint-disable-next-line no-control-regex
   s = s.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, '');
   // Ensure a trailing newline for POSIX-friendly files
   if (!s.endsWith('\n')) s += '\n';

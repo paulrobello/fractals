@@ -23,12 +23,14 @@ vec2 sdMandelbulbWithTrap(vec3 p, int iterations, float power);
 #include "./includes/sdf-mandelbox.glsl"
 #include "./includes/sdf-sierpinski.glsl"
 #include "./includes/coloring.glsl"
+// DEC shared constants and GDF plane set for preview snippets
+#include "./includes/dec/dec-utils.glsl"
 
 // --- Optional DEC Preview injection -----------------------------------------
 // The include below is resolved at build time by our manual include resolver.
 // When the preview is disabled, it expands to an empty string. When enabled,
 // it injects a user-selected SDF snippet while remapping `de` -> `decUserDE`.
-// See main.js for runtime toggling.
+// See ShaderManager for runtime toggling and injection.
 #include "./includes/dec/__user__.glsl"
 // Fallback if injection didn't define a DEC function
 #ifndef DEC_USER_DEFINED
@@ -1081,19 +1083,19 @@ int getAdaptiveMaxSteps(float distance) {
   return int(floor(dynSteps));
 }
 
-// Get adaptive relaxation factor based on distance and surface properties
-// Curvature-aware adaptive relaxation (disabled by default for performance)
+// Get adaptive relaxation factor based on distance
+// Pure distance-based adaptive relaxation for performance and correctness
+// Note: Previous curvature calculation using fwidth(normal) was incorrect - it computed
+// the rate of change of normals across screen pixels, not actual SDF curvature.
+// True SDF curvature requires second derivatives which are expensive to compute.
 float getAdaptiveRelaxation(float distance, vec3 normal) {
   if (!u_adaptiveRelaxation) {
     return u_stepRelaxation; // Use fixed relaxation
   }
 
+  // Use distance-based relaxation: larger steps far away, smaller steps close to surfaces
   float distanceFactor = smoothstep(u_lodNear, u_lodFar, distance);
-  // GLSL300: derivatives are core; use curvature to temper aggression
-  float curvature = length(fwidth(normal));
-  float curvatureFactor = 1.0 - clamp(curvature * 10.0, 0.0, 1.0);
-  float factor = curvatureFactor * 0.7 + distanceFactor * 0.3;
-  return mix(u_relaxationMin, u_relaxationMax, factor);
+  return mix(u_relaxationMin, u_relaxationMax, distanceFactor);
 }
 
 // Ray march with advanced adaptive step sizing

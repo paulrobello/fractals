@@ -1,7 +1,7 @@
 // Centralized defaults for uniforms and GUI params
 export const DEFAULTS = {
   fractalType: 1,
-  iterations: 6,
+  iterations: 10,
   power: 8.0,
   scale: 1.0,
 
@@ -12,7 +12,7 @@ export const DEFAULTS = {
   rotationSpeedZ: 0.1,
 
   // Camera
-  movementSpeed: 10.0,
+  movementSpeed: 5.0,
   fov: 45.0,
   flyMode: false,
 

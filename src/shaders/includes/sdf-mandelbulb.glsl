@@ -46,37 +46,13 @@ float sdMandelbulb(vec3 p, int iterations, float power) {
     return 0.5 * log(r) * r / dr;
 }
 
-// Optimized Mandelbulb using polynomial expansion (faster)
-// About 5x faster than trigonometric version for power=8
-float sdMandelbulbFast(vec3 p, int iterations) {
-    vec3 z = p;
-    float dr = 1.0;
-    float r = 0.0;
-
-    for(int i = 0; i < iterations; i++) {
-        r = length(z);
-        if(r > 2.0) break;
-
-        // Power 8 polynomial expansion
-        float x = z.x; float x2 = x*x; float x4 = x2*x2;
-        float y = z.y; float y2 = y*y; float y4 = y2*y2;
-        float z_val = z.z; float z2 = z_val*z_val; float z4 = z2*z2;
-
-        float k3 = x2 + z2;
-        float k2 = inversesqrt(k3*k3*k3*k3*k3*k3*k3);
-        float k1 = x4 + y4 + z4 - 6.0*y2*z2 - 6.0*x2*y2 + 2.0*z2*x2;
-        float k4 = x2 - y2 + z2;
-
-        dr = pow(r, 7.0) * 8.0 * dr + 1.0;
-
-        z.x = p.x + 64.0*x*y*z_val*(x2-z2)*k4*(x4-6.0*x2*z2+z4)*k1*k2;
-        z.y = p.y + -16.0*y2*k3*k4*k4 + k1*k1;
-        z.z = p.z + -8.0*y*k4*(x4*x4 - 28.0*x4*x2*z2 + 70.0*x4*z4 - 28.0*x2*z2*z4 + z4*z4)*k1*k2;
-    }
-
-    r = max(r, 1e-6); // prevent log(0)
-    return 0.5 * log(r) * r / dr;
-}
+// REMOVED: Optimized Mandelbulb using polynomial expansion
+// The previous polynomial implementation had incorrect math that produced wrong fractal shapes.
+// For power-8 Mandelbulb, use the standard trigonometric version above (sdMandelbulb with power=8.0).
+// While slightly slower, it produces correct results. Future optimization should use verified formulas.
+//
+// Note: Correct polynomial expansions for Mandelbulb are extremely complex and error-prone.
+// See: https://iquilezles.org/articles/mandelbulb/ for reference implementations.
 
 // Mandelbulb with configurable parameters from uniforms
 float sdMandelbulbUniform(vec3 p, int maxIterations, float power) {

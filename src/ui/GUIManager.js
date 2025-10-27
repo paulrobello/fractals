@@ -359,6 +359,11 @@ export class GUIManager {
     // Defaults source for resets
     this._defaults = DEFAULTS;
 
+    // Clean up old preset selection from localStorage (no longer persisted)
+    try {
+      localStorage.removeItem('fractalExplorer_visualPreset');
+    } catch (_) {}
+
     // Push initial AO/Shadow flags to uniforms from params
     if (uniforms.u_aoEnabled) uniforms.u_aoEnabled.value = this.params.aoEnabled;
     if (uniforms.u_softShadowsEnabled)
@@ -429,83 +434,60 @@ export class GUIManager {
       }
     }, 0);
 
-    // Apply saved preset selection (UI state) and optionally preset values
-    try {
-      const savedPreset = localStorage.getItem('fractalExplorer_visualPreset');
-      if (savedPreset && savedPreset !== 'None') {
-        // Reflect in UI selector
-        this.params.preset = savedPreset;
-        if (this.gui && this.gui.controllersRecursive)
-          this.gui.controllersRecursive().forEach((c) => c.updateDisplay && c.updateDisplay());
-        const hasOverrides = !!loadOverridesFromStorage();
-        if (!hasOverrides) {
-          this.applyPreset(savedPreset);
-          if (this.refreshFolderPersistenceStates) this.refreshFolderPersistenceStates();
-        } else {
-          // Deterministic startup for World presets (5/6): apply preset even when overrides exist,
-          // then let overrides win through normal persistence afterward as the user changes values.
-          const p = getPreset(savedPreset);
-          const isWorldPreset = !!(p && (p.fractalType === 5 || p.fractalType === 6));
-          if (isWorldPreset) {
-            this.applyPreset(savedPreset);
-            if (this.refreshFolderPersistenceStates) this.refreshFolderPersistenceStates();
-          }
-        }
-        if ((this.params.fractalType | 0) === 4) {
-          // Mandelbox: Segment by default; reduce far budgets if not tuned
-          if (this.params.useSegmentTracing !== true) {
-            this.params.useSegmentTracing = true;
-            if (this.uniforms.u_useSegmentTracing) this.uniforms.u_useSegmentTracing.value = true;
-          }
-          if (this.params.integratorAuto !== false) {
-            this.params.integratorAuto = false;
-            if (this.uniforms.u_integratorAuto) this.uniforms.u_integratorAuto.value = false;
-          }
-          if (this.params.segmentFraction === DEFAULTS.segmentFraction) {
-            this.params.segmentFraction = 0.6;
-            if (this.uniforms.u_segmentFraction) this.uniforms.u_segmentFraction.value = 0.6;
-          }
-          if (this.params.enableBudgetLOD !== true) {
-            this.params.enableBudgetLOD = true;
-            if (this.uniforms.u_enableBudgetLOD) this.uniforms.u_enableBudgetLOD.value = true;
-          }
-          if (this.params.budgetStepsFarFactor === DEFAULTS.budgetStepsFarFactor) {
-            this.params.budgetStepsFarFactor = 0.6;
-            if (this.uniforms.u_budgetStepsFarFactor)
-              this.uniforms.u_budgetStepsFarFactor.value = 0.6;
-          }
-          if (this.params.aoMinSamples === DEFAULTS.aoMinSamples) {
-            this.params.aoMinSamples = 1;
-            if (this.uniforms.u_aoMinSamples) this.uniforms.u_aoMinSamples.value = 1;
-          }
-          if (this.params.softShadowMinSteps === DEFAULTS.softShadowMinSteps) {
-            this.params.softShadowMinSteps = 6;
-            if (this.uniforms.u_softShadowMinSteps) this.uniforms.u_softShadowMinSteps.value = 6;
-          }
-          if (this.params.farShadowSkipFactor === DEFAULTS.farShadowSkipFactor) {
-            this.params.farShadowSkipFactor = 3.0;
-            if (this.uniforms.u_farShadowSkipFactor)
-              this.uniforms.u_farShadowSkipFactor.value = 3.0;
-          }
-          // If user hasn't decided on AO/SS yet, default them off for Mandelbox speed
-          if (
-            !('aoEnabled' in (this._defaults || {})) ||
-            this._defaults.aoEnabled === this.params.aoEnabled
-          ) {
-            this.params.aoEnabled = false;
-            if (this.uniforms.u_aoEnabled) this.uniforms.u_aoEnabled.value = false;
-          }
-          if (
-            !('softShadowsEnabled' in (this._defaults || {})) ||
-            this._defaults.softShadowsEnabled === this.params.softShadowsEnabled
-          ) {
-            this.params.softShadowsEnabled = false;
-            if (this.uniforms.u_softShadowsEnabled)
-              this.uniforms.u_softShadowsEnabled.value = false;
-          }
-        }
+    // Preset selection is not persisted - only the settings from applied presets are saved
+    // via the overrides system. On reload, the dropdown shows 'None' but settings are restored.
+
+    // Per-fractal type defaults (Mandelbox specific optimizations)
+    if ((this.params.fractalType | 0) === 4) {
+      // Mandelbox: Segment by default; reduce far budgets if not tuned
+      if (this.params.useSegmentTracing !== true) {
+        this.params.useSegmentTracing = true;
+        if (this.uniforms.u_useSegmentTracing) this.uniforms.u_useSegmentTracing.value = true;
       }
-    } catch (_) {}
+      if (this.params.integratorAuto !== false) {
+        this.params.integratorAuto = false;
+        if (this.uniforms.u_integratorAuto) this.uniforms.u_integratorAuto.value = false;
+      }
+      if (this.params.segmentFraction === DEFAULTS.segmentFraction) {
+        this.params.segmentFraction = 0.6;
+        if (this.uniforms.u_segmentFraction) this.uniforms.u_segmentFraction.value = 0.6;
+      }
+      if (this.params.enableBudgetLOD !== true) {
+        this.params.enableBudgetLOD = true;
+        if (this.uniforms.u_enableBudgetLOD) this.uniforms.u_enableBudgetLOD.value = true;
+      }
+      if (this.params.budgetStepsFarFactor === DEFAULTS.budgetStepsFarFactor) {
+        this.params.budgetStepsFarFactor = 0.6;
+        if (this.uniforms.u_budgetStepsFarFactor) this.uniforms.u_budgetStepsFarFactor.value = 0.6;
+      }
+      if (this.params.aoMinSamples === DEFAULTS.aoMinSamples) {
+        this.params.aoMinSamples = 1;
+        if (this.uniforms.u_aoMinSamples) this.uniforms.u_aoMinSamples.value = 1;
+      }
+      if (this.params.softShadowMinSteps === DEFAULTS.softShadowMinSteps) {
+        this.params.softShadowMinSteps = 6;
+        if (this.uniforms.u_softShadowMinSteps) this.uniforms.u_softShadowMinSteps.value = 6;
+      }
+      if (this.params.farShadowSkipFactor === DEFAULTS.farShadowSkipFactor) {
+        this.params.farShadowSkipFactor = 3.0;
+        if (this.uniforms.u_farShadowSkipFactor) this.uniforms.u_farShadowSkipFactor.value = 3.0;
+      }
+      // If user hasn't decided on AO/SS yet, default them off for Mandelbox speed
+      if (
+        !('aoEnabled' in (this._defaults || {})) ||
+        this._defaults.aoEnabled === this.params.aoEnabled
+      ) {
+        this.params.aoEnabled = false;
+        if (this.uniforms.u_aoEnabled) this.uniforms.u_aoEnabled.value = false;
+      }
+      if (
+        !('softShadowsEnabled' in (this._defaults || {})) ||
+        this._defaults.softShadowsEnabled === this.params.softShadowsEnabled
+      ) {
+        this.params.softShadowsEnabled = false;
+        if (this.uniforms.u_softShadowsEnabled) this.uniforms.u_softShadowsEnabled.value = false;
+      }
+    }
   }
   importLUT() {
     try {
@@ -1375,8 +1357,8 @@ export class GUIManager {
       if (typeof this.params.fractalType === 'number') {
         localStorage.setItem('fractalExplorer_fractalType', String(this.params.fractalType));
       }
-      // Persist selected preset name for UI state
-      localStorage.setItem('fractalExplorer_visualPreset', String(presetName));
+      // NOTE: Preset selection is NOT persisted - only the settings it applies
+      // The dropdown will reset to 'None' on reload, but settings persist via overrides
     } catch (_) {}
 
     // Apply camera if specified
@@ -2968,12 +2950,16 @@ export class GUIManager {
       .onChange((value) => {
         if (value !== 'None') {
           this.applyPreset(value);
+          // Reset dropdown to 'None' after applying - settings are persisted via overrides
+          setTimeout(() => {
+            this.params.preset = 'None';
+            c_preset.updateDisplay();
+          }, 100);
         }
-        try {
-          localStorage.setItem('fractalExplorer_visualPreset', String(value));
-        } catch (_) {}
       });
     this.addInfo(c_preset, 'preset');
+    // Store reference for later use
+    this.presetController = c_preset;
 
     // Fractal Controls Folder
     const fractalFolder = this.gui.addFolder('Fractal');
@@ -6773,6 +6759,9 @@ export class GUIManager {
       });
     this.addInfo(this.qualityController, 'quality');
 
+    // Apply the initial quality preset to sync params with saved benchmark values
+    this.applyQualityPreset(this.callbacks?.initialQuality || 'High');
+
     // Shaders are always specialized per fractal (compile-time FRAC_TYPE)
 
     // Mark as initialized after setup
@@ -7612,18 +7601,33 @@ export class GUIManager {
       .name('↺ Reset Advanced');
 
     advancedFolder.open(); // Start expanded to show new optimizations
-    // Track folders for persistence
+    // Track folders for persistence (including nested folders)
+    // Note: profilingFolder is added later (~line 7873) after it's created
     this._folders = {
       Fractal: fractalFolder,
       'DEC Preview': decFolder,
+      'DEC Offset': decPosFolder,
       World: worldFolder,
+      'Truchet Pipes': truchetFolder,
       WorldTexture: texFolder,
+      'Floor LOD': floorLODFolder,
+      Warp: warpFolder,
+      'Texture LOD': texLodFolder,
+      'Distance Fade': distFadeFolder,
+      'Layer Colors': layerColorFolder,
+      Anisotropy: anisoFolder,
+      'Scale Link': linkFolder,
+      'Strength Links': strLink,
+      FBM: fbmFolder,
+      'AA & Variants': aaFolder,
       Debug: debugFolder,
       Animation: animationFolder,
       Camera: cameraFolder,
       Morph: morphFolder,
       Lighting: lightingFolder,
       Color: colorFolder,
+      'Texture Colors': texColorFolder,
+      'Custom Palette': customFolder,
       Environment: envFolder,
       Performance: perfFolder,
       Advanced: advancedFolder,
@@ -8180,6 +8184,9 @@ export class GUIManager {
         this.uniforms.u_maxSteps.value = preset.maxSteps;
       }
       this.uniforms.u_iterations.value = preset.iterations;
+
+      // Mark iterations as overridden to prevent fractal-type defaults from resetting it
+      this._iterationsOverridden = true;
 
       // Save quality preference if user manually changed it
       if (this.isInitialized && this.callbacks.onQualityChange) {

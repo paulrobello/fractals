@@ -304,7 +304,7 @@ export const VISUAL_PRESETS = {
   Stable: {
     // Minimal overrides from DEFAULTS (safe, artifact-resistant baseline)
     fractalType: 2, // Mandelbulb
-    iterations: 12, // More detail
+    iterations: 10, // Standard detail
     palette: DEFAULTS.palette, // Keep current palette
     relaxationMin: 0.5, // Pin to safer default even if global changes
     useAnalyticNormals: true,
@@ -321,6 +321,8 @@ export const VISUAL_PRESETS = {
     worldTile: 16.0,
     worldThickness: 0.18,
     worldWarp: 0.35,
+    // Camera
+    movementSpeed: 1.0,
     // Lighting & effects
     aoEnabled: true,
     softShadowsEnabled: true,
@@ -351,6 +353,8 @@ export const VISUAL_PRESETS = {
     worldWarp: 0.2,
     worldDeScale: 0.82,
     worldSegClamp: 0.72,
+    // Camera
+    movementSpeed: 1.0,
     // Integrator: Segment, robust fly-through
     useSegmentTracing: true,
     integratorAuto: false,
@@ -385,6 +389,8 @@ export const VISUAL_PRESETS = {
     worldTile: 26.0,
     worldThickness: 0.12,
     worldWarp: 0.22,
+    // Camera
+    movementSpeed: 1.0,
     // Safer DE/segment settings to avoid shell artifacts
     worldDeScale: 0.85,
     worldSegClamp: 0.8,
@@ -454,6 +460,8 @@ export const VISUAL_PRESETS = {
     worldWarp: 0.28,
     worldDeScale: 0.9,
     worldSegClamp: 0.85,
+    // Camera
+    movementSpeed: 1.0,
     // Enable procedural textures and use Hex Truchet + FBM
     applyProceduralTextures: true,
     worldTexType: 4,
@@ -664,6 +672,8 @@ export const VISUAL_PRESETS = {
     // Use Vite module path used by GUIManager's decOptions
     decEntry: './shaders/includes/dec/fractal/float-pi-acos-1.glsl',
 
+    // Camera
+    movementSpeed: 1.0,
     // Visuals — neutral, readable lighting with normal shading
     colorMode: 3, // Normal
     ambientStrength: 0.3,
@@ -703,6 +713,8 @@ export const VISUAL_PRESETS = {
     worldWarp: 0.0, // no warp to match DEC exactly
     worldDeScale: 0.95, // slight safety scale for marching
     worldSegClamp: 0.85, // conservative segment clamp
+    // Camera
+    movementSpeed: 1.0,
     // Lighting & material
     colorMode: 3, // Normal shading for readability
     ambientStrength: 0.28,
