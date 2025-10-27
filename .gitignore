@@ -54,3 +54,7 @@ temp/
 *.tmp
 *.temp
 /.gemini-clipboard/
+
+# Debug artifacts (MCP, Claude Code, browser automation)
+.playwright-mcp/
+.claude/
