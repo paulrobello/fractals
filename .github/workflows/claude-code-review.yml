@@ -17,6 +17,8 @@ on:
 jobs:
   lint-and-format:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+
     permissions:
       contents: read
       pull-requests: write
@@ -47,6 +49,13 @@ jobs:
   claude-review:
     needs: lint-and-format
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    # Prevent parallel review runs on the same PR
+    concurrency:
+      group: claude-review-${{ github.event.pull_request.number }}
+      cancel-in-progress: true
+
     permissions:
       contents: read
       pull-requests: write
@@ -59,6 +68,13 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Validate Claude token
+        run: |
+          if [ -z "${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}" ]; then
+            echo "::error::CLAUDE_CODE_OAUTH_TOKEN secret is not set"
+            exit 1
+          fi
 
       - name: Run Claude Code Review
         id: claude-review
