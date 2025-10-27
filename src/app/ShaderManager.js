@@ -61,6 +61,7 @@ export class ShaderManager {
       u_fractalPower: { value: DEFAULTS.power },
       u_fractalScale: { value: DEFAULTS.scale },
       u_rotation: { value: new THREE.Vector3(0, 0, 0) },
+      u_zoomCenter: { value: new THREE.Vector3(0, 0, 0) }, // View-centered zoom
 
       // Lighting
       u_lightPos: { value: new THREE.Vector3(10, 10, 10) },

@@ -4,6 +4,7 @@ import { Renderer } from './Renderer.js';
 import { ShaderManager } from './ShaderManager.js';
 import { Controls } from './Controls.js';
 import { UI } from './UI.js';
+import { ZoomController } from './ZoomController.js';
 
 import { GUIManager } from '../ui/GUIManager.js';
 
@@ -21,6 +22,7 @@ export class FractalExplorer {
     this.shaderManager = new ShaderManager(this, this.renderer);
     this.controls = new Controls(this);
     this.ui = new UI(this);
+    this.zoomController = new ZoomController(this);
     this.clock = new THREE.Clock();
     this.time = 0;
     this.hasShaderError = false; // gate loading fade-out on shader errors
@@ -212,6 +214,11 @@ export class FractalExplorer {
         this.updateMovement(delta);
       }
     } catch (_) {}
+
+    // Update infinite zoom controller
+    if (this.zoomController) {
+      this.zoomController.update(delta);
+    }
 
     // Sync camera uniforms (use world transforms in case camera is parented to controls)
     const cam = this.renderer.camera;
@@ -566,6 +573,7 @@ export class FractalExplorer {
   setupGUI(initialQuality = null) {
     this.guiManager = new GUIManager(this.shaderManager.uniforms, this.renderer.camera, {
       initialQuality: initialQuality || 'High',
+      getApp: () => this, // Allow GUI to access ZoomController and other app components
       onFractalTypeChange: (type) => {
         this.shaderManager.uniforms.u_fractalType.value = type;
         this.shaderManager.applyMaterialSpecializationIfNeeded();
@@ -615,6 +623,18 @@ export class FractalExplorer {
       resetCamera: () => {
         this.renderer.camera.position.set(0, 0, 7);
         this.renderer.camera.lookAt(new THREE.Vector3(0, 0, 0));
+        // Update uniform to reflect new camera position
+        if (this.shaderManager.uniforms.u_cameraPos) {
+          this.shaderManager.uniforms.u_cameraPos.value.copy(this.renderer.camera.position);
+        }
+        // Update camera target uniform
+        if (this.shaderManager.uniforms.u_cameraTarget) {
+          this.shaderManager.uniforms.u_cameraTarget.value.set(0, 0, 0);
+        }
+        // Update controls if using PointerLockControls
+        if (this.controls && this.controls.getObject) {
+          this.controls.getObject().position.copy(this.renderer.camera.position);
+        }
       },
       resetRotation: () => {
         this.rotation.set(0, 0, 0);
@@ -801,6 +821,31 @@ export class FractalExplorer {
         } catch (_) {}
         if (this.shaderManager.decPreview.enabled) this.shaderManager.applyDecMappingAndRebuild();
       },
+    });
+
+    // Setup keyboard shortcuts
+    this.setupKeyboardShortcuts();
+  }
+
+  setupKeyboardShortcuts() {
+    document.addEventListener('keydown', (e) => {
+      // Ignore if typing in input fields
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+        return;
+      }
+
+      // D key: Toggle debug overlay
+      if (e.key === 'd' || e.key === 'D') {
+        if (this.guiManager && this.guiManager.params) {
+          this.guiManager.params.showDebugOverlay = !this.guiManager.params.showDebugOverlay;
+          const debugOverlay = document.getElementById('debug-overlay');
+          if (debugOverlay) {
+            debugOverlay.style.display = this.guiManager.params.showDebugOverlay ? 'block' : 'none';
+          }
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      }
     });
   }
 

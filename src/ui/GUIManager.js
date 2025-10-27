@@ -172,6 +172,13 @@ export class GUIManager {
         if (callbacks.resetCamera) callbacks.resetCamera();
       },
 
+      // Infinite Zoom
+      zoomEnabled: DEFAULTS.zoomEnabled,
+      zoomSpeed: DEFAULTS.zoomSpeed,
+      zoomAutoRotate: DEFAULTS.zoomAutoRotate,
+      zoomRotationSpeed: DEFAULTS.zoomRotationSpeed,
+      zoomWrapThreshold: DEFAULTS.zoomWrapThreshold,
+
       // Lighting
       lightPosX: DEFAULTS.lightPosX,
       lightPosY: DEFAULTS.lightPosY,
@@ -3472,6 +3479,7 @@ export class GUIManager {
 
     // Procedural Texture (Global)
     const texFolder = this.gui.addFolder('Procedural Texture');
+    texFolder.close(); // Closed by default
     // Texture Quality macro preset (maps to perf + LOD dials)
     const texQualityOptions = { Performance: 'Performance', Balanced: 'Balanced', Crisp: 'Crisp' };
     texFolder
@@ -4995,6 +5003,7 @@ export class GUIManager {
 
     // Debug Folder
     const debugFolder = this.gui.addFolder('Debug');
+    debugFolder.close(); // Closed by default
     const c_dbgOn = debugFolder
       .add(this.params, 'debugEnabled')
       .name('Enable Debug View')
@@ -5002,6 +5011,16 @@ export class GUIManager {
         if (this.uniforms.u_debugEnabled) this.uniforms.u_debugEnabled.value = v;
       });
     this.addInfo(c_dbgOn, 'debugEnabled');
+
+    const c_showDbgOverlay = debugFolder
+      .add(this.params, 'showDebugOverlay')
+      .name('Show Debug Overlay (D)')
+      .onChange((value) => {
+        if (this.callbacks.onDebugOverlayToggle) {
+          this.callbacks.onDebugOverlayToggle(value);
+        }
+      });
+    this.addInfo(c_showDbgOverlay, 'showDebugOverlay');
 
     const c_dbgMode = debugFolder
       .add(this.params, 'debugMode', {
@@ -5095,6 +5114,7 @@ export class GUIManager {
 
     // Morph (animated parameter cycles)
     const morphFolder = this.gui.addFolder('Morph');
+    morphFolder.close(); // Closed by default
     const c_morphOn = morphFolder
       .add(this.params, 'morphEnabled')
       .name('Enable Morph')
@@ -5244,6 +5264,7 @@ export class GUIManager {
 
     // Animation Controls Folder
     const animationFolder = this.gui.addFolder('Animation');
+    animationFolder.close(); // Closed by default
 
     const c_autoRot = animationFolder
       .add(this.params, 'animateRotation')
@@ -5382,6 +5403,173 @@ export class GUIManager {
         'reset'
       )
       .name('↺ Reset Camera');
+
+    // Infinite Zoom Controls Folder
+    const zoomFolder = this.gui.addFolder('Infinite Zoom');
+    zoomFolder.open(); // Open by default
+
+    const z_enabled = zoomFolder
+      .add(this.params, 'zoomEnabled')
+      .name('Enable Infinite Zoom')
+      .onChange((v) => {
+        // Get reference to ZoomController from app
+        const app = this.callbacks.getApp ? this.callbacks.getApp() : null;
+        if (app && app.zoomController) {
+          app.zoomController.enabled = !!v;
+          // Lock pointer when zoom starts
+          if (v && app.controls && app.controls.controls) {
+            try {
+              app.controls.controls.lock();
+            } catch (e) {
+              console.warn('Could not lock pointer:', e);
+            }
+          }
+        }
+      });
+    this._INFO.zoomEnabled = [
+      'Enable Infinite Zoom',
+      'Automatically zooms into the fractal with scale wrapping for infinite depth illusion. Works with self-similar fractals (Menger, Mandelbulb, Sierpinski, Mandelbox). User can still steer direction with WASD and mouse.',
+    ];
+    this.addInfo(z_enabled, 'zoomEnabled');
+
+    const z_speed = zoomFolder
+      .add(this.params, 'zoomSpeed', 0.1, 10.0, 0.1)
+      .name('Zoom Speed')
+      .onChange((v) => {
+        const app = this.callbacks.getApp ? this.callbacks.getApp() : null;
+        if (app && app.zoomController) {
+          app.zoomController.speed = v;
+        }
+      });
+    this._INFO.zoomSpeed = [
+      'Zoom Speed',
+      'Controls how fast the camera moves forward during zoom. Higher values zoom faster into the fractal. Speed scales with zoom depth for consistent motion.',
+    ];
+    this.addInfo(z_speed, 'zoomSpeed');
+
+    const z_autoRotate = zoomFolder
+      .add(this.params, 'zoomAutoRotate')
+      .name('Auto-Rotate (Cinematic)')
+      .onChange((v) => {
+        const app = this.callbacks.getApp ? this.callbacks.getApp() : null;
+        if (app && app.zoomController) {
+          app.zoomController.autoRotate = !!v;
+        }
+      });
+    this._INFO.zoomAutoRotate = [
+      'Auto-Rotate (Cinematic)',
+      'Automatically rotates the fractal around the Y-axis while zooming for a cinematic, spiraling camera path. Creates more dynamic and visually interesting zoom sequences.',
+    ];
+    this.addInfo(z_autoRotate, 'zoomAutoRotate');
+
+    const z_rotSpeed = zoomFolder
+      .add(this.params, 'zoomRotationSpeed', 0.0, 2.0, 0.1)
+      .name('Rotation Speed')
+      .onChange((v) => {
+        const app = this.callbacks.getApp ? this.callbacks.getApp() : null;
+        if (app && app.zoomController) {
+          app.zoomController.rotationSpeed = v;
+        }
+      });
+    this._INFO.zoomRotationSpeed = [
+      'Rotation Speed',
+      'Controls the speed of auto-rotation during zoom (radians per second). Only active when Auto-Rotate is enabled. Higher values create faster spinning motion.',
+    ];
+    this.addInfo(z_rotSpeed, 'zoomRotationSpeed');
+
+    const z_wrapThreshold = zoomFolder
+      .add(this.params, 'zoomWrapThreshold', 10, 500, 10)
+      .name('Wrap Threshold')
+      .onChange((v) => {
+        const app = this.callbacks.getApp ? this.callbacks.getApp() : null;
+        if (app && app.zoomController) {
+          app.zoomController.wrapThreshold = v;
+        }
+      });
+    this._INFO.zoomWrapThreshold = [
+      'Wrap Threshold',
+      'Cumulative scale at which to perform scale wrapping. Higher values zoom deeper before wrapping. Wrapping maintains infinite zoom illusion by resetting camera position and scaling the fractal.',
+    ];
+    this.addInfo(z_wrapThreshold, 'zoomWrapThreshold');
+
+    // Zoom Center Mode
+    this.params.zoomCenterMode = 'view';
+    const z_centerMode = zoomFolder
+      .add(this.params, 'zoomCenterMode', ['origin', 'view'])
+      .name('Zoom Center Mode')
+      .onChange((v) => {
+        const app = this.callbacks.getApp ? this.callbacks.getApp() : null;
+        if (app && app.zoomController) {
+          app.zoomController.zoomCenterMode = v;
+        }
+      });
+    this._INFO.zoomCenterMode = [
+      'Zoom Center Mode',
+      'origin: Zoom toward fractal origin (0,0,0) - legacy behavior. view: Zoom toward point along camera view ray - lets you zoom into what you are looking at, like Mandelbrot set exploration.',
+    ];
+    this.addInfo(z_centerMode, 'zoomCenterMode');
+
+    // Zoom Center Distance (only relevant in 'view' mode)
+    this.params.zoomCenterDistance = 5.0;
+    const z_centerDist = zoomFolder
+      .add(this.params, 'zoomCenterDistance', 0.1, 20.0, 0.1)
+      .name('View Distance')
+      .onChange((v) => {
+        const app = this.callbacks.getApp ? this.callbacks.getApp() : null;
+        if (app && app.zoomController) {
+          app.zoomController.zoomCenterDistance = v;
+        }
+      });
+    this._INFO.zoomCenterDistance = [
+      'View Distance',
+      'Distance along camera view ray where zoom is centered (only used in view mode). Lower values zoom toward closer features, higher values zoom toward farther features. Experiment to find sweet spot for your camera angle.',
+    ];
+    this.addInfo(z_centerDist, 'zoomCenterDistance');
+
+    // Per-fractal zoom enable/disable subfolder
+    const zoomPerFractalFolder = zoomFolder.addFolder('Per-Fractal Enable');
+    zoomPerFractalFolder.close();
+
+    const fractals = [
+      { name: 'Menger Sponge', key: 1 },
+      { name: 'Mandelbulb', key: 2 },
+      { name: 'Sierpinski', key: 3 },
+      { name: 'Mandelbox', key: 4 },
+    ];
+
+    fractals.forEach((frac) => {
+      const paramKey = `zoom_${frac.name.replace(/\s+/g, '')}`;
+      this.params[paramKey] = true; // Default enabled
+
+      zoomPerFractalFolder.add(this.params, paramKey).name(frac.name).onChange((v) => {
+        const app = this.callbacks.getApp ? this.callbacks.getApp() : null;
+        if (app && app.zoomController && app.zoomController.fractalConfigs[frac.key]) {
+          app.zoomController.fractalConfigs[frac.key].enabled = !!v;
+        }
+      });
+    });
+
+    zoomFolder
+      .add(
+        {
+          reset: () => {
+            resetSection([
+              'zoomEnabled',
+              'zoomSpeed',
+              'zoomAutoRotate',
+              'zoomRotationSpeed',
+              'zoomWrapThreshold',
+            ]);
+            // Reset ZoomController state
+            const app = this.callbacks.getApp ? this.callbacks.getApp() : null;
+            if (app && app.zoomController) {
+              app.zoomController.reset();
+            }
+          },
+        },
+        'reset'
+      )
+      .name('↺ Reset Zoom');
 
     // Lighting Controls Folder (collapsed by default)
     const lightingFolder = this.gui.addFolder('Lighting');
@@ -6543,6 +6731,7 @@ export class GUIManager {
 
     // Post Processing Folder
     const postFolder = this.gui.addFolder('Post Processing');
+    postFolder.close(); // Closed by default
     const c_postExp = postFolder
       .add(this.params, 'postExposure', 0.0, 3.0, 0.01)
       .name('Exposure')
@@ -7656,16 +7845,6 @@ export class GUIManager {
         }
       });
     this.addInfo(c_showStats, 'showStats');
-
-    const c_showDbg = perfFolder
-      .add(this.params, 'showDebugOverlay')
-      .name('Show Debug Overlay')
-      .onChange((value) => {
-        if (this.callbacks.onDebugOverlayToggle) {
-          this.callbacks.onDebugOverlayToggle(value);
-        }
-      });
-    this.addInfo(c_showDbg, 'showDebugOverlay');
 
     // Profiling helpers — buttons that call the built-in runProfile/getOverlayText
     const profilingFolder = perfFolder.addFolder('Profiling');

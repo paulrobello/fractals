@@ -8,7 +8,8 @@ const float MB_NORM = 0.25;
 
 // Mandelbulb
 vec3 mbToLocal(vec3 p) {
-  return rotate3D(p, u_rotation) / u_fractalScale;
+  vec3 rotated = rotate3D(p, u_rotation);
+  return (rotated - u_zoomCenter) / u_fractalScale;
 }
 vec3 mbNormalToWorld(vec3 nLocal) {
   return rotate3DInv(nLocal, u_rotation);
@@ -16,7 +17,8 @@ vec3 mbNormalToWorld(vec3 nLocal) {
 
 // Menger
 vec3 mgToLocal(vec3 p) {
-  return rotate3D(p, u_rotation) / u_fractalScale;
+  vec3 rotated = rotate3D(p, u_rotation);
+  return (rotated - u_zoomCenter) / u_fractalScale;
 }
 vec3 mgNormalToWorld(vec3 nLocal) {
   return rotate3DInv(nLocal, u_rotation);
@@ -24,7 +26,8 @@ vec3 mgNormalToWorld(vec3 nLocal) {
 
 // Mandelbox
 vec3 mbxToLocal(vec3 p) {
-  return rotate3D(p, u_rotation) / (u_fractalScale * MB_NORM);
+  vec3 rotated = rotate3D(p, u_rotation);
+  return (rotated - u_zoomCenter) / (u_fractalScale * MB_NORM);
 }
 vec3 mbxNormalToWorld(vec3 nLocal) {
   return rotate3DInv(nLocal, u_rotation);
@@ -38,7 +41,7 @@ vec3 spToLocal(vec3 p) {
   vec3 q = p;
   if (!u_dbgBypassSierpinskiAlign) q = sierpAlignFwd() * q;
   if (!u_dbgBypassFractalRotation) q = rotate3D(q, u_rotation);
-  return q / u_fractalScale;
+  return (q - u_zoomCenter) / u_fractalScale;
 }
 vec3 spDirWorldToLocal(vec3 v) {
   vec3 q = v;
@@ -84,7 +87,8 @@ float deAmazingSurfWorld(vec3 p, out float trap) {
   if (u_worldUseDEC) {
     // Use injected DEC distance directly as world surface (optional shell via worldThickness)
     float s = max(0.2, u_fractalScale);
-    vec3 pl = rotate3D(p - u_decOffset, u_rotation) / s;
+    vec3 rotated = rotate3D(p - u_decOffset, u_rotation);
+    vec3 pl = (rotated - u_zoomCenter) / s;
     float d0 = decUserDE(pl) * s;
     float d;
     if (u_worldThickness <= 0.001) {
@@ -127,31 +131,34 @@ float boundsDistanceWorld(vec3 p) {
   }
   if (u_fractalType == 1) {
     vec3 q = mgToLocal(p);
-    return sdBox(q, vec3(1.1));
+    return sdBox(q, vec3(1.1)) * u_fractalScale;
   }
   if (u_fractalType == 2) {
     vec3 q = mbToLocal(p);
-    return length(q) - 2.2;
+    return (length(q) - 2.2) * u_fractalScale;
   }
   if (u_fractalType == 4) {
     vec3 q = mbxToLocal(p);
     const float MB_PAD = 0.6;
-    return sdBox(q, vec3(2.2)) - MB_PAD;
+    return (sdBox(q, vec3(2.2)) - MB_PAD) * (u_fractalScale * MB_NORM);
   }
   if (u_fractalType == 5) {
     // Rotate and scale similarly to SDF call; use deAmazingSurf params conservatively.
-    vec3 q = rotate3D(p, u_rotation) / max(0.5, u_fractalScale);
+    vec3 rotated = rotate3D(p, u_rotation);
+    vec3 q = (rotated - u_zoomCenter) / max(0.5, u_fractalScale);
     float rad = max(2.0, u_worldTile * 0.9);
-    return length(q) - rad;
+    return (length(q) - rad) * max(0.5, u_fractalScale);
   }
   if (u_fractalType == 6) {
     // Truchet pipes: conservative spherical bound in local truchet space
-    vec3 q = rotate3D(p, u_rotation) / max(0.5, u_worldTile);
+    vec3 rotated = rotate3D(p, u_rotation);
+    vec3 q = (rotated - u_zoomCenter) / max(0.5, u_worldTile);
     // Tighter radius near the cell neighborhood; decorations are contained inside ~1.05
     // in unit Truchet space (coarse but safe). Further reduced for better culling.
-    return length(q) - 1.05;
+    return (length(q) - 1.05) * max(0.5, u_worldTile);
   }
   // Default spherical bound in local scale
-  vec3 q = rotate3D(p, u_rotation) / u_fractalScale;
-  return length(q) - 2.6;
+  vec3 rotated = rotate3D(p, u_rotation);
+  vec3 q = (rotated - u_zoomCenter) / u_fractalScale;
+  return (length(q) - 2.6) * u_fractalScale;
 }

@@ -60,6 +60,7 @@ uniform int u_iterations;
 uniform float u_fractalPower; // For Mandelbulb
 uniform float u_fractalScale;
 uniform vec3 u_rotation; // Per-axis rotation angles
+uniform vec3 u_zoomCenter; // View-centered zoom: world-space point to zoom toward
 
 // Additional uniforms from GUI
 uniform vec3 u_lightPos;
@@ -487,10 +488,20 @@ vec3 texSamplePos(vec3 p) {
   if (u_fractalType == 2) return mbToLocal(p);
   if (u_fractalType == 3) return spToLocal(p);
   if (u_fractalType == 4) return mbxToLocal(p);
-  if (u_fractalType == 5) return rotate3D(p, u_rotation) / max(0.2, u_fractalScale);
-  if (u_fractalType == 6) return rotate3D(p, u_rotation) / max(0.5, u_worldTile);
-  if (u_fractalType == 7) return rotate3D(p - u_decOffset, u_rotation) / max(0.2, u_fractalScale);
-  return rotate3D(p, u_rotation) / max(0.2, u_fractalScale);
+  if (u_fractalType == 5) {
+    vec3 rotated = rotate3D(p, u_rotation);
+    return (rotated - u_zoomCenter) / max(0.2, u_fractalScale);
+  }
+  if (u_fractalType == 6) {
+    vec3 rotated = rotate3D(p, u_rotation);
+    return (rotated - u_zoomCenter) / max(0.5, u_worldTile);
+  }
+  if (u_fractalType == 7) {
+    vec3 rotated = rotate3D(p - u_decOffset, u_rotation);
+    return (rotated - u_zoomCenter) / max(0.2, u_fractalScale);
+  }
+  vec3 rotated = rotate3D(p, u_rotation);
+  return (rotated - u_zoomCenter) / max(0.2, u_fractalScale);
 }
 
 // Evaluate procedural textures: returns color factor, bump delta to add to normal, and specular scale
@@ -742,7 +753,8 @@ float mapRaw(vec3 p) {
     case FT_TRUCHET: { float trapDummy; fractal = deTruchetPipesWorld(p, trapDummy); } break;
     case FT_DEC: {
       float s = max(0.2, u_fractalScale);
-      vec3 pl = rotate3D(p - u_decOffset, u_rotation) / s;
+      vec3 rotated = rotate3D(p - u_decOffset, u_rotation);
+      vec3 pl = (rotated - u_zoomCenter) / s;
       float d = decUserDE(pl) * s;
       fractal = d;
     } break;
@@ -838,7 +850,8 @@ vec2 mapWithTrapRaw(vec3 p) {
     } break;
     case FT_DEC: {
       float s = max(0.2, u_fractalScale);
-      vec3 pl = rotate3D(p - u_decOffset, u_rotation) / s;
+      vec3 rotated = rotate3D(p - u_decOffset, u_rotation);
+      vec3 pl = (rotated - u_zoomCenter) / s;
       float d = decUserDE(pl) * s;
       // Generic orbit trap for DEC: boxy + radial blend (reuse boxy helper)
       float trapBox = orbitTrapBoxy(pl);
@@ -1512,7 +1525,8 @@ vec3 debugColor(vec3 ro, vec3 rd, vec4 result) {
     } else if (u_fractalType == 4) {
       q = mbxToLocal(q);
     } else {
-      q = rotate3D(q, u_rotation) / u_fractalScale;
+      vec3 rotated = rotate3D(q, u_rotation);
+      q = (rotated - u_zoomCenter) / u_fractalScale;
     }
     float mask;
     if (u_fractalType == 4) {
@@ -1539,7 +1553,8 @@ vec3 debugColor(vec3 ro, vec3 rd, vec4 result) {
     if (u_fractalType == 3) {
       q = spToLocal(q);
     } else {
-      q = rotate3D(q, u_rotation) / u_fractalScale;
+      vec3 rotated = rotate3D(q, u_rotation);
+      q = (rotated - u_zoomCenter) / u_fractalScale;
     }
     float d = sdTetrahedron(q, 1.8);
     float v = 1.0 - smoothstep(0.0, 0.06, abs(d));
@@ -2127,7 +2142,8 @@ float mapFractalOnly(vec3 p) {
     } break;
     case FT_DEC: {
       float s = max(0.2, u_fractalScale);
-      vec3 pl = rotate3D(p - u_decOffset, u_rotation) / s;
+      vec3 rotated = rotate3D(p - u_decOffset, u_rotation);
+      vec3 pl = (rotated - u_zoomCenter) / s;
       float d = decUserDE(pl) * s;
       fractal = d;
     } break;

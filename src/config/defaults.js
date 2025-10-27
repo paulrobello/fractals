@@ -16,6 +16,15 @@ export const DEFAULTS = {
   fov: 45.0,
   flyMode: false,
 
+  // Infinite Zoom
+  zoomEnabled: false,
+  zoomSpeed: 1.0,
+  zoomAutoRotate: false, // Disabled by default
+  zoomRotationSpeed: 0.3,
+  zoomWrapThreshold: 100.0,
+  zoomCenterMode: 'view', // 'origin' or 'view'
+  zoomCenterDistance: 5.0, // Distance along view ray for 'view' mode
+
   // Lighting
   lightPosX: 10.0,
   lightPosY: 10.0,
