@@ -834,6 +834,21 @@ export class FractalExplorer {
         return;
       }
 
+      // H key: Toggle help overlay
+      if (e.key === 'h' || e.key === 'H') {
+        const helpOverlay = document.getElementById('help-overlay');
+        if (helpOverlay) {
+          const isVisible = helpOverlay.classList.contains('visible');
+          if (isVisible) {
+            helpOverlay.classList.remove('visible');
+          } else {
+            helpOverlay.classList.add('visible');
+          }
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      }
+
       // D key: Toggle debug overlay
       if (e.key === 'd' || e.key === 'D') {
         if (this.guiManager && this.guiManager.params) {
@@ -842,6 +857,16 @@ export class FractalExplorer {
           if (debugOverlay) {
             debugOverlay.style.display = this.guiManager.params.showDebugOverlay ? 'block' : 'none';
           }
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      }
+
+      // Escape key: Close help overlay if visible
+      if (e.key === 'Escape') {
+        const helpOverlay = document.getElementById('help-overlay');
+        if (helpOverlay && helpOverlay.classList.contains('visible')) {
+          helpOverlay.classList.remove('visible');
           e.preventDefault();
           e.stopPropagation();
         }

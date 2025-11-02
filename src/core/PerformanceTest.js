@@ -64,11 +64,11 @@ export class PerformanceTest {
       const skippedResults = {
         quality: 'Medium',
         fps: 60,
-        maxSteps: 96,
+        maxSteps: 80,
         iterations: 6,
         skipped: true,
       };
-      PerformanceTest.saveQuality('Medium', 96, 6);
+      PerformanceTest.saveQuality('Medium', 80, 6);
       return skippedResults;
     }
 
@@ -85,9 +85,9 @@ export class PerformanceTest {
 
     // Measure canonical quality tiers so labels match budgets
     const tiers = {
-      Low: { maxSteps: 64, iterations: 4 },
-      Medium: { maxSteps: 96, iterations: 6 },
-      High: { maxSteps: 128, iterations: 8 },
+      Low: { maxSteps: 48, iterations: 4 },
+      Medium: { maxSteps: 80, iterations: 6 },
+      High: { maxSteps: 112, iterations: 8 },
       Ultra: { maxSteps: 200, iterations: 12 },
     };
 
