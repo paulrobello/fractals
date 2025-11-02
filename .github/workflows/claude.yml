@@ -31,7 +31,6 @@ jobs:
       issues: write  # Allow Claude to comment and update issues
       id-token: write
       actions: read  # Required for Claude to read CI results on PRs
-      workflows: write  # Allow Claude to update workflow files
 
     steps:
       - name: Checkout repository
