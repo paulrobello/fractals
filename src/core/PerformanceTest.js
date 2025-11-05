@@ -105,10 +105,11 @@ export class PerformanceTest {
     console.log('📊 Test Results:', results);
 
     // Determine best quality level; then snap to canonical budgets
+    // Thresholds increased by 20% to require higher performance for each tier
     let tier = 'Low';
-    if (results.ultra.fps >= 60) tier = 'Ultra';
-    else if (results.high.fps >= 55) tier = 'High';
-    else if (results.medium.fps >= 45) tier = 'Medium';
+    if (results.ultra.fps >= 72) tier = 'Ultra';
+    else if (results.high.fps >= 66) tier = 'High';
+    else if (results.medium.fps >= 54) tier = 'Medium';
     else tier = 'Low';
 
     const canonical = tiers[tier];
