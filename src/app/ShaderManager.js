@@ -409,7 +409,7 @@ export class ShaderManager {
   // DEC mapping hook for GUI (no-op minimal implementation)
   applyDecMappingAndRebuild() {
     // 1) Decide what to inject based on preview state
-    let injected = '';
+    let injected;
     if (this.decPreview && this.decPreview.enabled) {
       let key = this.resolveDecKey(this.decPreview.includePath);
       if (key && DEC_MODULES[key]) {

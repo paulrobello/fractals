@@ -20,9 +20,10 @@ export default defineConfig({
     sourcemap: true,
     rollupOptions: {
       output: {
-        manualChunks: {
-          three: ['three'],
-          monaco: ['monaco-editor'],
+        manualChunks(id) {
+          if (id.includes('node_modules/three')) return 'three';
+          if (id.includes('node_modules/monaco-editor')) return 'monaco';
+          return undefined;
         },
       },
     },

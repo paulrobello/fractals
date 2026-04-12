@@ -26,17 +26,17 @@
   "license": "MIT",
   "dependencies": {
     "lil-gui": "^0.21.0",
-    "monaco-editor": "^0.53.0",
+    "monaco-editor": "^0.55.1",
     "stats-js": "^1.0.1",
     "stats.js": "^0.17.0",
-    "three": "^0.181.0"
+    "three": "^0.183.2"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.0",
-    "eslint": "^9.39.0",
-    "globals": "^16.5.0",
-    "prettier": "^3.6.2",
-    "vite": "^7.1.12",
-    "vite-plugin-glsl": "^1.5.4"
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.2.0",
+    "globals": "^17.4.0",
+    "prettier": "^3.8.2",
+    "vite": "^8.0.8",
+    "vite-plugin-glsl": "^1.6.0"
   }
 }
